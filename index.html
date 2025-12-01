@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -11,2459 +12,1516 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #f5f3ff 0%, #e0e7ff 100%);
-            min-height: 100vh;
-            padding: 20px;
-            line-height: 1.5;
-        }
+```
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        background: linear-gradient(135deg, #f5f3ff 0%, #e0e7ff 100%);
+        min-height: 100vh;
+        padding: 20px;
+        line-height: 1.5;
+    }
 
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
+    .container {
+        max-width: 1400px;
+        margin: 0 auto;
+    }
 
-        .header {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            padding: 20px;
-            margin-bottom: 20px;
-        }
+    .sync-status {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: #10b981;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 8px;
+        font-size: 13px;
+        z-index: 2000;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
 
-        .header-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
+    .sync-status.syncing {
+        background: #f59e0b;
+    }
 
-        .header-title h1 {
-            color: #4f46e5;
-            font-size: 28px;
-            margin-bottom: 5px;
-        }
+    .sync-status.error {
+        background: #ef4444;
+    }
 
-        .header-title p {
-            color: #6b7280;
-            font-size: 14px;
-        }
+    .header {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        padding: 20px;
+        margin-bottom: 20px;
+    }
 
-        .header-buttons {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
+    .header-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
 
-        .btn {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s;
-        }
+    .header-title h1 {
+        color: #4f46e5;
+        font-size: 28px;
+        margin-bottom: 5px;
+    }
 
-        .btn-primary {
-            background: #4f46e5;
-            color: white;
-        }
+    .header-title p {
+        color: #6b7280;
+        font-size: 14px;
+    }
 
-        .btn-primary:hover {
-            background: #4338ca;
-        }
+    .header-buttons {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
 
-        .btn-success {
-            background: #10b981;
-            color: white;
-        }
+    .btn {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.3s;
+    }
 
-        .btn-success:hover {
-            background: #059669;
-        }
+    .btn-primary {
+        background: #4f46e5;
+        color: white;
+    }
 
-        .btn-warning {
-            background: #f59e0b;
-            color: white;
-        }
+    .btn-primary:hover {
+        background: #4338ca;
+    }
 
-        .btn-warning:hover {
-            background: #d97706;
-        }
+    .btn-success {
+        background: #10b981;
+        color: white;
+    }
 
-        .btn-secondary {
-            background: #e5e7eb;
-            color: #374151;
-        }
+    .btn-success:hover {
+        background: #059669;
+    }
 
-        .btn-secondary:hover {
-            background: #d1d5db;
-        }
+    .btn-warning {
+        background: #f59e0b;
+        color: white;
+    }
 
-        .btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
+    .btn-warning:hover {
+        background: #d97706;
+    }
 
-        .form-nuevo {
-            background: #eef2ff;
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 15px;
-        }
+    .btn-secondary {
+        background: #e5e7eb;
+        color: #374151;
+    }
 
-        .form-row {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
+    .btn-secondary:hover {
+        background: #d1d5db;
+    }
 
-        .form-row input,
-        .form-row select {
-            flex: 1;
-            min-width: 150px;
-            padding: 10px;
-            border: 1px solid #d1d5db;
-            border-radius: 8px;
-            font-size: 14px;
-        }
+    .btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
 
+    .form-nuevo {
+        background: #eef2ff;
+        padding: 20px;
+        border-radius: 8px;
+        margin-top: 15px;
+    }
+
+    .form-row {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .form-row input,
+    .form-row select {
+        flex: 1;
+        min-width: 150px;
+        padding: 10px;
+        border: 1px solid #d1d5db;
+        border-radius: 8px;
+        font-size: 14px;
+    }
+
+    .main-content {
+        display: grid;
+        grid-template-columns: 300px 1fr;
+        gap: 20px;
+    }
+
+    @media (max-width: 1024px) {
         .main-content {
-            display: grid;
-            grid-template-columns: 300px 1fr;
-            gap: 20px;
-        }
-
-        @media (max-width: 1024px) {
-            .main-content {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .sidebar {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .alumnos-group {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            padding: 15px;
-        }
-
-        .alumnos-group h3 {
-            color: #312e81;
-            margin-bottom: 10px;
-            font-size: 16px;
-        }
-
-        .alumno-btn {
-            width: 100%;
-            padding: 10px;
-            background: #f9fafb;
-            border: none;
-            border-radius: 8px;
-            text-align: left;
-            cursor: pointer;
-            margin-bottom: 5px;
-            transition: all 0.3s;
-        }
-
-        .alumno-btn:hover {
-            background: #f3f4f6;
-        }
-
-        .alumno-btn.active {
-            background: #eef2ff;
-            color: #4f46e5;
-            font-weight: 600;
-        }
-
-        .content-area {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            padding: 20px;
-        }
-
-        .placeholder {
-            text-align: center;
-            padding: 80px 20px;
-            color: #9ca3af;
-        }
-
-        .placeholder svg {
-            width: 64px;
-            height: 64px;
-            margin: 0 auto 20px;
-            opacity: 0.3;
-        }
-
-        .alumno-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: start;
-            margin-bottom: 20px;
-        }
-
-        .alumno-info h2 {
-            font-size: 22px;
-            margin-bottom: 5px;
-        }
-
-        .alumno-info p {
-            color: #4f46e5;
-            font-size: 14px;
-        }
-
-        .btn-delete {
-            background: #ef4444;
-            color: white;
-            padding: 8px 12px;
-        }
-
-        .btn-delete:hover {
-            background: #dc2626;
-        }
-
-        .semanas-nav {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .semana-btn {
-            padding: 12px;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            background: #f3f4f6;
-            transition: all 0.3s;
-        }
-
-        .semana-btn.active {
-            background: #4f46e5;
-            color: white;
-        }
-
-        .dias-header {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 5px;
-            margin-bottom: 15px;
-        }
-
-        .dia-label {
-            text-align: center;
-            font-weight: 600;
-            background: #f9fafb;
-            padding: 10px;
-            border-radius: 8px;
-            font-size: 13px;
-        }
-
-        .categoria {
-            margin-bottom: 15px;
-        }
-
-        .categoria-header {
-            background: #eef2ff;
-            padding: 12px 15px;
-            border-radius: 8px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 600;
-            font-size: 14px;
-        }
-
-        .categoria-content {
-            display: none;
-            padding-top: 10px;
-        }
-
-        .categoria-content.expanded {
-            display: block;
-        }
-
-        .aspecto {
-            border: 1px solid #e5e7eb;
-            border-radius: 8px;
-            padding: 10px;
-            margin-bottom: 10px;
-        }
-
-        .aspecto-nombre {
-            font-size: 13px;
-            font-weight: 500;
-            margin-bottom: 8px;
-        }
-
-        .aspecto-dias {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 5px;
-        }
-
-        .aspecto-dias select {
-            width: 100%;
-            padding: 6px;
-            border: 1px solid #d1d5db;
-            border-radius: 6px;
-            font-size: 12px;
-        }
-
-        .notas-section {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            padding: 20px;
-            margin-top: 20px;
-        }
-
-        .notas-section h3 {
-            font-weight: 600;
-            margin-bottom: 15px;
-            font-size: 14px;
-        }
-
-        .notas-input {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-
-        .notas-input input {
-            flex: 1;
-            padding: 10px;
-            border: 1px solid #d1d5db;
-            border-radius: 8px;
-            font-size: 14px;
-        }
-
-        .notas-lista {
-            max-height: 150px;
-            overflow-y: auto;
-        }
-
-        .nota-item {
-            background: #fef3c7;
-            padding: 10px;
-            border-radius: 8px;
-            margin-bottom: 8px;
-            font-size: 13px;
-        }
-
-        .nota-fecha {
-            color: #6b7280;
-            font-size: 11px;
-            margin-top: 5px;
-        }
-
-        .comentarios-section {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            padding: 20px;
-            margin-top: 20px;
-        }
-
-        .comentarios-btns {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-        }
-
-        .btn-comentario {
-            padding: 15px;
-            background: #4f46e5;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .btn-comentario:hover {
-            background: #4338ca;
-        }
-
-        .btn-comentario.mensual {
-            background: #7c3aed;
-        }
-
-        .btn-comentario.mensual:hover {
-            background: #6d28d9;
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.5);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .modal.show {
-            display: flex;
-        }
-
-        .modal-content {
-            background: white;
-            border-radius: 12px;
-            max-width: 800px;
-            width: 100%;
-            max-height: 80vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .modal-header {
-            padding: 20px;
-            border-bottom: 1px solid #e5e7eb;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .modal-header h3 {
-            font-size: 18px;
-        }
-
-        .modal-body {
-            flex: 1;
-            overflow-y: auto;
-            padding: 20px;
-        }
-
-        .modal-body pre {
-            white-space: pre-wrap;
-            font-size: 13px;
-            font-family: inherit;
-            line-height: 1.6;
-        }
-
-        .modal-footer {
-            padding: 20px;
-            border-top: 1px solid #e5e7eb;
-        }
-
-        .btn-close {
-            background: none;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: #6b7280;
-        }
-
-        .tareas-section {
-            background: #f9fafb;
-            border-radius: 12px;
-            padding: 15px;
-            margin-top: 15px;
-        }
-
-        .tareas-toggle {
-            background: #eef2ff;
-            padding: 12px 15px;
-            border-radius: 8px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        .tareas-content {
-            display: none;
-        }
-
-        .tareas-content.expanded {
-            display: block;
-        }
-
-        .taller-group {
-            background: white;
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 15px;
-            border: 2px solid #e5e7eb;
-        }
-
-        .taller-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .taller-titulo {
-            font-size: 16px;
-            font-weight: 600;
-            color: #4f46e5;
-        }
-
-        .tarea-item {
-            background: #f9fafb;
-            border: 1px solid #e5e7eb;
-            border-radius: 8px;
-            padding: 12px;
-            margin-bottom: 8px;
-        }
-
-        .tarea-titulo {
-            font-weight: 600;
-            margin-bottom: 5px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 14px;
-        }
-
-        .tarea-criterios {
-            font-size: 12px;
-            color: #6b7280;
-            margin-top: 5px;
-        }
-
-        .criterio-tag {
-            display: inline-block;
-            background: #eef2ff;
-            color: #4f46e5;
-            padding: 3px 8px;
-            border-radius: 4px;
-            margin: 2px;
-            font-size: 11px;
-        }
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .sidebar {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .alumnos-group {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        padding: 15px;
+    }
+
+    .alumnos-group h3 {
+        color: #312e81;
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+
+    .alumno-btn {
+        width: 100%;
+        padding: 10px;
+        background: #f9fafb;
+        border: none;
+        border-radius: 8px;
+        text-align: left;
+        cursor: pointer;
+        margin-bottom: 5px;
+        transition: all 0.3s;
+    }
+
+    .alumno-btn:hover {
+        background: #f3f4f6;
+    }
+
+    .alumno-btn.active {
+        background: #eef2ff;
+        color: #4f46e5;
+        font-weight: 600;
+    }
+
+    .content-area {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        padding: 20px;
+    }
+
+    .placeholder {
+        text-align: center;
+        padding: 80px 20px;
+        color: #9ca3af;
+    }
+
+    .placeholder svg {
+        width: 64px;
+        height: 64px;
+        margin: 0 auto 20px;
+        opacity: 0.3;
+    }
+
+    .alumno-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+        margin-bottom: 20px;
+    }
+
+    .alumno-info h2 {
+        font-size: 22px;
+        margin-bottom: 5px;
+    }
+
+    .alumno-info p {
+        color: #4f46e5;
+        font-size: 14px;
+    }
+
+    .btn-delete {
+        background: #ef4444;
+        color: white;
+        padding: 8px 12px;
+    }
+
+    .btn-delete:hover {
+        background: #dc2626;
+    }
+
+    .semanas-nav {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    .semana-btn {
+        padding: 12px;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        background: #f3f4f6;
+        transition: all 0.3s;
+    }
+
+    .semana-btn.active {
+        background: #4f46e5;
+        color: white;
+    }
+
+    .dias-header {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 5px;
+        margin-bottom: 15px;
+    }
+
+    .dia-label {
+        text-align: center;
+        font-weight: 600;
+        background: #f9fafb;
+        padding: 10px;
+        border-radius: 8px;
+        font-size: 13px;
+    }
+
+    .categoria {
+        margin-bottom: 15px;
+    }
+
+    .categoria-header {
+        background: #eef2ff;
+        padding: 12px 15px;
+        border-radius: 8px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 600;
+        font-size: 14px;
+    }
+
+    .categoria-content {
+        display: none;
+        padding-top: 10px;
+    }
+
+    .categoria-content.expanded {
+        display: block;
+    }
+
+    .aspecto {
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    .aspecto-nombre {
+        font-size: 13px;
+        font-weight: 500;
+        margin-bottom: 8px;
+    }
+
+    .aspecto-dias {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 5px;
+    }
+
+    .aspecto-dias select {
+        width: 100%;
+        padding: 6px;
+        border: 1px solid #d1d5db;
+        border-radius: 6px;
+        font-size: 12px;
+    }
+
+    .notas-section {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        padding: 20px;
+        margin-top: 20px;
+    }
+
+    .notas-section h3 {
+        font-weight: 600;
+        margin-bottom: 15px;
+        font-size: 14px;
+    }
+
+    .notas-input {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+
+    .notas-input input {
+        flex: 1;
+        padding: 10px;
+        border: 1px solid #d1d5db;
+        border-radius: 8px;
+        font-size: 14px;
+    }
+
+    .notas-lista {
+        max-height: 150px;
+        overflow-y: auto;
+    }
+
+    .nota-item {
+        background: #fef3c7;
+        padding: 10px;
+        border-radius: 8px;
+        margin-bottom: 8px;
+        font-size: 13px;
+    }
+
+    .nota-fecha {
+        color: #6b7280;
+        font-size: 11px;
+        margin-top: 5px;
+    }
+
+    .comentarios-section {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        padding: 20px;
+        margin-top: 20px;
+    }
+
+    .comentarios-btns {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .btn-comentario {
+        padding: 15px;
+        background: #4f46e5;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+
+    .btn-comentario:hover {
+        background: #4338ca;
+    }
+
+    .btn-comentario.mensual {
+        background: #7c3aed;
+    }
+
+    .btn-comentario.mensual:hover {
+        background: #6d28d9;
+    }
+
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0,0,0,0.5);
+        z-index: 1000;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+
+    .modal.show {
+        display: flex;
+    }
+
+    .modal-content {
+        background: white;
+        border-radius: 12px;
+        max-width: 800px;
+        width: 100%;
+        max-height: 80vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .modal-header {
+        padding: 20px;
+        border-bottom: 1px solid #e5e7eb;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .modal-header h3 {
+        font-size: 18px;
+    }
+
+    .modal-body {
+        flex: 1;
+        overflow-y: auto;
+        padding: 20px;
+    }
+
+    .modal-body pre {
+        white-space: pre-wrap;
+        font-size: 13px;
+        font-family: inherit;
+        line-height: 1.6;
+    }
+
+    .modal-footer {
+        padding: 20px;
+        border-top: 1px solid #e5e7eb;
+    }
+
+    .btn-close {
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: #6b7280;
+    }
+
+    .tareas-section {
+        background: #f9fafb;
+        border-radius: 12px;
+        padding: 15px;
+        margin-top: 15px;
+    }
+
+    .tareas-toggle {
+        background: #eef2ff;
+        padding: 12px 15px;
+        border-radius: 8px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+
+    .tareas-content {
+        display: none;
+    }
+
+    .tareas-content.expanded {
+        display: block;
+    }
+
+    .taller-group {
+        background: white;
+        border-radius: 8px;
+        padding: 15px;
+        margin-bottom: 15px;
+        border: 2px solid #e5e7eb;
+    }
+
+    .taller-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .taller-titulo {
+        font-size: 16px;
+        font-weight: 600;
+        color: #4f46e5;
+    }
+
+    .tarea-item {
+        background: #f9fafb;
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        padding: 12px;
+        margin-bottom: 8px;
+    }
+
+    .tarea-titulo {
+        font-weight: 600;
+        margin-bottom: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 14px;
+    }
+
+    .tarea-criterios {
+        font-size: 12px;
+        color: #6b7280;
+        margin-top: 5px;
+    }
+
+    .criterio-tag {
+        display: inline-block;
+        background: #eef2ff;
+        color: #4f46e5;
+        padding: 3px 8px;
+        border-radius: 4px;
+        margin: 2px;
+        font-size: 11px;
+    }
+
+    .form-tarea {
+        background: #eef2ff;
+        padding: 15px;
+        border-radius: 8px;
+        margin-top: 10px;
+    }
+
+    .form-group {
+        margin-bottom: 10px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 13px;
+        font-weight: 500;
+    }
+
+    .form-group input,
+    .form-group select {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #d1d5db;
+        border-radius: 6px;
+        font-size: 14px;
+    }
+
+    .criterios-inputs {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .btn-small {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    .btn-danger {
+        background: #ef4444;
+        color: white;
+    }
+
+    .btn-danger:hover {
+        background: #dc2626;
+    }
+
+    .rotacion-section {
+        background: #fef3c7;
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        border: 2px solid #f59e0b;
+    }
+
+    .rotacion-label {
+        font-weight: 600;
+        margin-bottom: 8px;
+        display: block;
+        font-size: 14px;
+        color: #92400e;
+    }
+
+    .rotacion-select {
+        width: 100%;
+        padding: 10px;
+        border: 2px solid #f59e0b;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 500;
+        background: white;
+        margin-bottom: 10px;
+    }
+
+    .tarea-select-section {
+        background: #dbeafe;
+        padding: 12px;
+        border-radius: 8px;
+        margin-top: 10px;
+    }
+
+    .tarea-select-label {
+        font-weight: 600;
+        margin-bottom: 6px;
+        display: block;
+        font-size: 13px;
+        color: #1e40af;
+    }
+
+    .tarea-select {
+        width: 100%;
+        padding: 8px;
+        border: 2px solid #3b82f6;
+        border-radius: 8px;
+        font-size: 13px;
+        font-weight: 500;
+    }
+
+    .info-banner {
+        background: #dbeafe;
+        border-left: 4px solid #3b82f6;
+        padding: 12px;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        font-size: 13px;
+    }
+
+    .desplegable-tipo {
+        margin-bottom: 15px;
+    }
+
+    .desplegable-header {
+        background: #f8fafc;
+        padding: 10px 15px;
+        border-radius: 8px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 600;
+        font-size: 13px;
+        border: 1px solid #e2e8f0;
+    }
+
+    .desplegable-content {
+        display: none;
+        padding-top: 10px;
+    }
+
+    .desplegable-content.expanded {
+        display: block;
+    }
+</style>
+```
 
-        .form-tarea {
-            background: #eef2ff;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 10px;
-        }
-
-        .form-group {
-            margin-bottom: 10px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-size: 13px;
-            font-weight: 500;
-        }
-
-        .form-group input,
-        .form-group select {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #d1d5db;
-            border-radius: 6px;
-            font-size: 14px;
-        }
-
-        .criterios-inputs {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-        }
-
-        .btn-small {
-            padding: 6px 12px;
-            font-size: 12px;
-        }
-
-        .btn-danger {
-            background: #ef4444;
-            color: white;
-        }
-
-        .btn-danger:hover {
-            background: #dc2626;
-        }
-
-        .rotacion-section {
-            background: #fef3c7;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            border: 2px solid #f59e0b;
-        }
-
-        .rotacion-label {
-            font-weight: 600;
-            margin-bottom: 8px;
-            display: block;
-            font-size: 14px;
-            color: #92400e;
-        }
-
-        .rotacion-select {
-            width: 100%;
-            padding: 10px;
-            border: 2px solid #f59e0b;
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: 500;
-            background: white;
-            margin-bottom: 10px;
-        }
-
-        .tarea-select-section {
-            background: #dbeafe;
-            padding: 12px;
-            border-radius: 8px;
-            margin-top: 10px;
-        }
-
-        .tarea-select-label {
-            font-weight: 600;
-            margin-bottom: 6px;
-            display: block;
-            font-size: 13px;
-            color: #1e40af;
-        }
-
-        .tarea-select {
-            width: 100%;
-            padding: 8px;
-            border: 2px solid #3b82f6;
-            border-radius: 8px;
-            font-size: 13px;
-            font-weight: 500;
-        }
-
-        .info-banner {
-            background: #dbeafe;
-            border-left: 4px solid #3b82f6;
-            padding: 12px;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            font-size: 13px;
-        }
-
-        .tipo-tarea {
-            font-size: 11px;
-            padding: 2px 6px;
-            border-radius: 4px;
-            margin-left: 8px;
-        }
-        .tipo-original {
-            background: #e0e7ff;
-            color: #3730a3;
-        }
-        .tipo-nueva {
-            background: #fef3c7;
-            color: #92400e;
-        }
-
-        .desplegable-tipo {
-            margin-bottom: 15px;
-        }
-
-        .desplegable-header {
-            background: #f8fafc;
-            padding: 10px 15px;
-            border-radius: 8px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 600;
-            font-size: 13px;
-            border: 1px solid #e2e8f0;
-        }
-
-        .desplegable-content {
-            display: none;
-            padding-top: 10px;
-        }
-
-        .desplegable-content.expanded {
-            display: block;
-        }
-    </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Header -->
-        <div class="header">
-            <div class="header-top">
-                <div class="header-title">
-                    <h1>🔄 Seguimiento - Rotación de Talleres</h1>
-                    <p id="contador-alumnos">0 alumnos</p>
-                </div>
-                <div class="header-buttons">
-                    <button class="btn btn-warning" onclick="cargarTodasActividades()">
-                        📥 Cargar Todas
-                    </button>
-                    <button class="btn btn-primary" onclick="toggleFormTareas()">
-                        🔧 Ver Tareas
-                    </button>
-                    <button class="btn btn-primary" onclick="toggleFormNuevo()">
-                        ➕ Alumno
-                    </button>
-                    <button class="btn btn-success" onclick="exportar()" id="btn-exportar">
-                        💾 Exportar
-                    </button>
-                </div>
-            </div>
+    <div class="sync-status" id="sync-status">🔄 Conectando...</div>
 
-            <!-- Formulario gestión tareas (colapsable) -->
-            <div id="form-tareas" style="display: none;">
-                <div class="tareas-section">
-                    <div class="tareas-toggle" onclick="toggleTareasContent()">
-                        <span>📋 Banco de Tareas por Taller</span>
-                        <span id="tareas-arrow">▼</span>
-                    </div>
-                    
-                    <div class="tareas-content" id="tareas-content">
-                        <div id="form-nueva-tarea" style="display: none;">
-                            <div class="form-tarea">
-                                <div class="form-group">
-                                    <label>Taller:</label>
-                                    <select id="nueva-tarea-taller">
-                                        <option>Electricidad</option>
-                                        <option>Fontanería</option>
-                                        <option>Carpintería</option>
-                                        <option>Albañilería</option>
-                                    </select>
+```
+<div class="container">
+    <!-- Header -->
+    <div class="header">
+        <div class="header-top">
+            <div class="header-title">
+                <h1>🔄 Seguimiento - Rotación de Talleres</h1>
+                <p id="contador-alumnos">0 alumnos</p>
+            </div>
+            <div class="header-buttons">
+                <button class="btn btn-warning" onclick="cargarTodasActividades()">
+                    🔥 Cargar Todas
+                </button>
+                <button class="btn btn-primary" onclick="toggleFormTareas()">
+                    🔧 Ver Tareas
+                </button>
+                <button class="btn btn-primary" onclick="toggleFormNuevo()">
+                    ➕ Alumno
+                </button>
+                <button class="btn btn-success" onclick="exportar()" id="btn-exportar">
+                    💾 Exportar
+                </button>
+            </div>
+        </div>
+
+        <!-- Formulario gestión tareas (colapsable) -->
+        <div id="form-tareas" style="display: none;">
+            <div class="tareas-section">
+                <div class="tareas-toggle" onclick="toggleTareasContent()">
+                    <span>📋 Banco de Tareas por Taller</span>
+                    <span id="tareas-arrow">▼</span>
+                </div>
+                
+                <div class="tareas-content" id="tareas-content">
+                    <div id="form-nueva-tarea" style="display: none;">
+                        <div class="form-tarea">
+                            <div class="form-group">
+                                <label>Taller:</label>
+                                <select id="nueva-tarea-taller">
+                                    <option>Electricidad</option>
+                                    <option>Fontanería</option>
+                                    <option>Carpintería</option>
+                                    <option>Albañilería</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Nombre de la tarea:</label>
+                                <input type="text" id="nueva-tarea-nombre" placeholder="Ej: Instalación de enchufes">
+                            </div>
+                            <div class="form-group">
+                                <label>Criterios de evaluación:</label>
+                                <div class="criterios-inputs" id="criterios-inputs">
+                                    <input type="text" placeholder="Criterio 1" class="criterio-input">
+                                    <input type="text" placeholder="Criterio 2" class="criterio-input">
+                                    <input type="text" placeholder="Criterio 3" class="criterio-input">
                                 </div>
-                                <div class="form-group">
-                                    <label>Nombre de la tarea:</label>
-                                    <input type="text" id="nueva-tarea-nombre" placeholder="Ej: Instalación de enchufes">
-                                </div>
-                                <div class="form-group">
-                                    <label>Criterios de evaluación:</label>
-                                    <div class="criterios-inputs" id="criterios-inputs">
-                                        <input type="text" placeholder="Criterio 1" class="criterio-input">
-                                        <input type="text" placeholder="Criterio 2" class="criterio-input">
-                                        <input type="text" placeholder="Criterio 3" class="criterio-input">
-                                    </div>
-                                    <button class="btn btn-secondary btn-small" style="margin-top: 5px;" onclick="agregarCriterioInput()">+ Añadir criterio</button>
-                                </div>
-                                <div style="display: flex; gap: 10px;">
-                                    <button class="btn btn-primary" onclick="guardarTarea()">Guardar Tarea</button>
-                                    <button class="btn btn-secondary" onclick="toggleFormNuevaTarea()">Cancelar</button>
-                                </div>
+                                <button class="btn btn-secondary btn-small" style="margin-top: 5px;" onclick="agregarCriterioInput()">+ Añadir criterio</button>
+                            </div>
+                            <div style="display: flex; gap: 10px;">
+                                <button class="btn btn-primary" onclick="guardarTarea()">Guardar Tarea</button>
+                                <button class="btn btn-secondary" onclick="toggleFormNuevaTarea()">Cancelar</button>
                             </div>
                         </div>
-
-                        <button class="btn btn-primary btn-small" style="margin-bottom: 15px;" onclick="toggleFormNuevaTarea()">➕ Nueva Tarea Manual</button>
-
-                        <div id="lista-tareas"></div>
                     </div>
-                </div>
-            </div>
 
-            <!-- Formulario nuevo alumno -->
-            <div id="form-nuevo" class="form-nuevo" style="display: none;">
-                <div class="form-row">
-                    <input type="text" id="nombre-nuevo" placeholder="Nombre del alumno" onkeypress="if(event.key==='Enter')agregarAlumno()">
-                    <button class="btn btn-primary" onclick="agregarAlumno()">Agregar</button>
-                    <button class="btn btn-secondary" onclick="toggleFormNuevo()">Cancelar</button>
+                    <button class="btn btn-primary btn-small" style="margin-bottom: 15px;" onclick="toggleFormNuevaTarea()">➕ Nueva Tarea Manual</button>
+
+                    <div id="lista-tareas"></div>
                 </div>
             </div>
         </div>
 
-        <!-- Main Content -->
-        <div class="main-content">
-            <!-- Sidebar -->
-            <div class="sidebar">
-                <div class="alumnos-group">
-                    <h3>👥 Alumnos</h3>
-                    <div id="lista-alumnos"></div>
+        <!-- Formulario nuevo alumno -->
+        <div id="form-nuevo" class="form-nuevo" style="display: none;">
+            <div class="form-row">
+                <input type="text" id="nombre-nuevo" placeholder="Nombre del alumno" onkeypress="if(event.key==='Enter')agregarAlumno()">
+                <button class="btn btn-primary" onclick="agregarAlumno()">Agregar</button>
+                <button class="btn btn-secondary" onclick="toggleFormNuevo()">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="alumnos-group">
+                <h3>👥 Alumnos</h3>
+                <div id="lista-alumnos"></div>
+            </div>
+        </div>
+
+        <!-- Content Area -->
+        <div id="content-area">
+            <div class="content-area">
+                <div class="placeholder">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                    <p>Selecciona un alumno para comenzar el seguimiento</p>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
 
-            <!-- Content Area -->
-            <div id="content-area">
+<!-- Modal Comentario -->
+<div id="modal-comentario" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>📄 Comentario</h3>
+            <button class="btn-close" onclick="cerrarModal()">&times;</button>
+        </div>
+        <div class="modal-body">
+            <pre id="texto-comentario"></pre>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" style="width: 100%;" onclick="copiarComentario()">📋 Copiar al Portapapeles</button>
+        </div>
+    </div>
+</div>
+
+<!-- Firebase SDKs -->
+<script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+    import { getDatabase, ref, set, get, onValue, remove } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js';
+
+    // Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyBCbj2orvoo7rF7a3RwsDM_3SSQq_3gJyw",
+        authDomain: "seguimiento-cb339.firebaseapp.com",
+        databaseURL: "https://seguimiento-cb339-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "seguimiento-cb339",
+        storageBucket: "seguimiento-cb339.firebasestorage.app",
+        messagingSenderId: "683813548226",
+        appId: "1:683813548226:web:5176bb425b17e9aa2e8b5b"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+
+    // Export to window for global access
+    window.firebaseDB = database;
+    window.firebaseRef = ref;
+    window.firebaseSet = set;
+    window.firebaseGet = get;
+    window.firebaseOnValue = onValue;
+    window.firebaseRemove = remove;
+
+    // Initialize app after Firebase is ready
+    window.inicializarApp();
+</script>
+
+<script>
+    // Variables globales
+    let alumnos = [];
+    let tareas = [];
+    let notas = {};
+    let seleccionado = null;
+    let semanaActual = 1;
+    let categoriaExpandida = 'actitudinales';
+    let tareasExpanded = false;
+    let firebaseInitialized = false;
+
+    const talleres = ['Electricidad', 'Fontanería', 'Carpintería', 'Albañilería'];
+
+    // Datos de actividades (mantenidos del código original)
+    const actividadesElectricidadOriginal = [
+        {
+            nombre: "ACT1: Herramientas básicas (destornilladores, alicates, pelacables)",
+            criterios: [
+                "Identificación correcta de herramientas",
+                "Técnica de uso de destornilladores",
+                "Manejo de alicates y pelacables",
+                "Pelado y preparación de cables",
+                "Mantenimiento de herramientas"
+            ]
+        },
+        {
+            nombre: "ACT2: Instrumentos de medida (voltímetro, amperímetro)",
+            criterios: [
+                "Uso correcto del multímetro",
+                "Medición de tensión y corriente",
+                "Pruebas de continuidad",
+                "Uso de pinzas amperimétricas",
+                "Interpretación de medidas"
+            ]
+        }
+    ];
+
+    const actividadesFontaneriaOriginal = [
+        {
+            nombre: "ACT1: Herramientas de fontanería (llaves, cortatubos, soplete)",
+            criterios: [
+                "Identificación correcta de herramientas",
+                "Uso de llaves inglesas y estilson",
+                "Técnica de corte de tubos",
+                "Manejo de soplete para soldadura",
+                "Mantenimiento de herramientas"
+            ]
+        }
+    ];
+
+    const actividadesCarpinteriaOriginal = [
+        {
+            nombre: "ACT1: Herramientas manuales (sierras, cepillos, formones)",
+            criterios: [
+                "Identificación correcta de herramientas",
+                "Técnica de corte con sierras",
+                "Uso de cepillos para cepillado",
+                "Manejo de formones para ensambles",
+                "Afilado y mantenimiento"
+            ]
+        }
+    ];
+
+    const actividadesAlbanileriaOriginal = [
+        {
+            nombre: "ACT1: Herramientas de albañilería (paletas, niveles, plomadas)",
+            criterios: [
+                "Identificación correcta de herramientas",
+                "Uso de paletas para mortero",
+                "Manejo de niveles y plomadas",
+                "Técnicas de aplomado",
+                "Limpieza y mantenimiento"
+            ]
+        }
+    ];
+
+    const aspectosData = [
+        {
+            categoria: 'actitudinales',
+            titulo: '👤 Actitudinales',
+            items: [
+                {
+                    nombre: 'Puntualidad',
+                    opciones: ['', '🕐 A la hora', '🕕 Retraso 5-10m', '⏳ Tarde +10m', '⌛ Falta just', '⛔ Falta no just']
+                },
+                {
+                    nombre: 'Actitud',
+                    opciones: ['', '🌟 Proactivo', '✅ Positiva', '😐 Pasivo', '😞 Desmotivado', '➖ No observado']
+                },
+                {
+                    nombre: 'Trabajo equipo',
+                    opciones: ['', '🤝 Colabora', '✅ Bien', '🙋 Solo', '⚠️ Conflictos', '➖ No observado']
+                }
+            ]
+        },
+        {
+            categoria: 'progreso',
+            titulo: '📈 Progreso',
+            items: [
+                {
+                    nombre: 'Evolución',
+                    opciones: ['', '🚀 Mejora notable', '✅ Al ritmo', '🐌 Lento', '🔄 Estancado', '➖ No observado']
+                },
+                {
+                    nombre: 'Autonomía',
+                    opciones: ['', '💪 Independiente', '✅ Poca super', '🙋 Pregunta mucho', '👨‍🏫 Acompañamiento', '➖ No observado']
+                },
+                {
+                    nombre: 'Resolución problemas',
+                    opciones: ['', '🧩 Solo', '✅ Con ayuda', '🤔 Se bloquea', '🆘 No sabe', '➖ No observado']
+                }
+            ]
+        }
+    ];
+
+    // Sistema de sincronización con Firebase
+    function mostrarEstadoSync(mensaje, tipo = 'success') {
+        const status = document.getElementById('sync-status');
+        status.textContent = mensaje;
+        status.className = 'sync-status';
+        if (tipo === 'syncing') status.classList.add('syncing');
+        if (tipo === 'error') status.classList.add('error');
+    }
+
+    function guardarEnFirebase() {
+        if (!firebaseInitialized) return;
+        
+        try {
+            const data = {
+                alumnos: alumnos,
+                notas: notas,
+                tareas: tareas,
+                ultimaActualizacion: new Date().toISOString()
+            };
+            
+            mostrarEstadoSync('⏳ Guardando...', 'syncing');
+            window.firebaseSet(window.firebaseRef(window.firebaseDB, 'seguimiento'), data)
+                .then(() => {
+                    mostrarEstadoSync('✅ Sincronizado');
+                    setTimeout(() => {
+                        mostrarEstadoSync('🔄 Conectado');
+                    }, 2000);
+                })
+                .catch(error => {
+                    console.error('Error guardando:', error);
+                    mostrarEstadoSync('❌ Error al guardar', 'error');
+                });
+        } catch (e) {
+            console.error('Error:', e);
+        }
+    }
+
+    function cargarDesdeFirebase() {
+        if (!firebaseInitialized) return;
+        
+        try {
+            const dbRef = window.firebaseRef(window.firebaseDB, 'seguimiento');
+            
+            window.firebaseOnValue(dbRef, (snapshot) => {
+                const data = snapshot.val();
+                if (data) {
+                    alumnos = data.alumnos || [];
+                    notas = data.notas || {};
+                    tareas = data.tareas || [];
+                    renderizar();
+                    mostrarEstadoSync('✅ Datos actualizados');
+                    setTimeout(() => {
+                        mostrarEstadoSync('🔄 Conectado');
+                    }, 2000);
+                }
+            }, {
+                onlyOnce: false
+            });
+        } catch (e) {
+            console.error('Error cargando:', e);
+            mostrarEstadoSync('❌ Error conexión', 'error');
+        }
+    }
+
+    // Inicialización
+    window.inicializarApp = function() {
+        firebaseInitialized = true;
+        mostrarEstadoSync('🔄 Conectando...', 'syncing');
+        cargarDesdeFirebase();
+    };
+
+    function crearSeguimiento() {
+        const seg = {};
+        for (let s = 1; s <= 4; s++) {
+            seg['s' + s] = {
+                taller: null,
+                tareaAsignada: null,
+                dias: {}
+            };
+            for (let d = 1; d <= 5; d++) {
+                seg['s' + s].dias['d' + d] = {
+                    tarea: {},
+                    actitudinales: {},
+                    progreso: {}
+                };
+                
+                aspectosData.forEach(cat => {
+                    cat.items.forEach((item, idx) => {
+                        seg['s' + s].dias['d' + d][cat.categoria][idx] = '';
+                    });
+                });
+            }
+        }
+        return seg;
+    }
+
+    function toggleFormNuevo() {
+        const form = document.getElementById('form-nuevo');
+        form.style.display = form.style.display === 'none' ? 'block' : 'none';
+    }
+
+    function toggleFormTareas() {
+        const form = document.getElementById('form-tareas');
+        form.style.display = form.style.display === 'none' ? 'block' : 'none';
+        if (form.style.display === 'block') {
+            renderizarTareas();
+        }
+    }
+
+    function toggleTareasContent() {
+        tareasExpanded = !tareasExpanded;
+        const content = document.getElementById('tareas-content');
+        const arrow = document.getElementById('tareas-arrow');
+        content.classList.toggle('expanded');
+        arrow.textContent = tareasExpanded ? '▲' : '▼';
+    }
+
+    function toggleFormNuevaTarea() {
+        const form = document.getElementById('form-nueva-tarea');
+        form.style.display = form.style.display === 'none' ? 'block' : 'none';
+    }
+
+    function agregarCriterioInput() {
+        const container = document.getElementById('criterios-inputs');
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.className = 'criterio-input';
+        input.placeholder = 'Criterio ' + (container.children.length + 1);
+        container.appendChild(input);
+    }
+
+    function guardarTarea() {
+        const taller = document.getElementById('nueva-tarea-taller').value;
+        const nombre = document.getElementById('nueva-tarea-nombre').value.trim();
+        const inputs = document.querySelectorAll('.criterio-input');
+        const criterios = [];
+        inputs.forEach(inp => {
+            if (inp.value.trim()) {
+                criterios.push(inp.value.trim());
+            }
+        });
+
+        if (!nombre) {
+            alert('Por favor, ingresa un nombre para la tarea');
+            return;
+        }
+
+        if (criterios.length === 0) {
+            alert('Por favor, añade al menos un criterio de evaluación');
+            return;
+        }
+
+        tareas.push({
+            id: Date.now(),
+            taller: taller,
+            nombre: nombre,
+            criterios: criterios,
+            tipo: 'manual'
+        });
+
+        guardarEnFirebase();
+        toggleFormNuevaTarea();
+        renderizarTareas();
+    }
+
+    function eliminarTarea(id) {
+        if (confirm('¿Eliminar esta tarea?')) {
+            tareas = tareas.filter(t => t.id !== id);
+            guardarEnFirebase();
+            renderizarTareas();
+        }
+    }
+
+    function cargarTodasActividades() {
+        if (confirm('¿Cargar actividades predefinidas? Esto añadirá actividades de ejemplo.')) {
+            const todosTalleres = [
+                { taller: 'Electricidad', originales: actividadesElectricidadOriginal },
+                { taller: 'Fontanería', originales: actividadesFontaneriaOriginal },
+                { taller: 'Carpintería', originales: actividadesCarpinteriaOriginal },
+                { taller: 'Albañilería', originales: actividadesAlbanileriaOriginal }
+            ];
+
+            let totalAgregadas = 0;
+            todosTalleres.forEach(tallerData => {
+                tallerData.originales.forEach(act => {
+                    const existe = tareas.find(t => t.nombre === act.nombre && t.taller === tallerData.taller);
+                    if (!existe) {
+                        tareas.push({
+                            id: Date.now() + totalAgregadas,
+                            taller: tallerData.taller,
+                            nombre: act.nombre,
+                            criterios: act.criterios,
+                            tipo: 'original'
+                        });
+                        totalAgregadas++;
+                    }
+                });
+            });
+
+            guardarEnFirebase();
+            alert(`✅ Se han agregado ${totalAgregadas} actividades`);
+            renderizarTareas();
+        }
+    }
+
+    function renderizarTareas() {
+        const lista = document.getElementById('lista-tareas');
+        
+        if (tareas.length === 0) {
+            lista.innerHTML = '<p style="text-align: center; color: #6b7280; padding: 20px;">No hay tareas. Haz clic en "Cargar Todas" para añadir actividades.</p>';
+            return;
+        }
+
+        const tareasPorTaller = {};
+        talleres.forEach(t => tareasPorTaller[t] = []);
+        tareas.forEach(t => {
+            if (tareasPorTaller[t.taller]) {
+                tareasPorTaller[t.taller].push(t);
+            }
+        });
+
+        lista.innerHTML = talleres.map(taller => {
+            const tareasDelTaller = tareasPorTaller[taller];
+            if (tareasDelTaller.length === 0) return '';
+            
+            return `
+                <div class="taller-group">
+                    <div class="taller-header">
+                        <div class="taller-titulo">🔧 ${taller}</div>
+                        <div style="color: #6b7280; font-size: 13px;">${tareasDelTaller.length} tareas</div>
+                    </div>
+                    ${tareasDelTaller.map(t => `
+                        <div class="tarea-item">
+                            <div class="tarea-titulo">
+                                <span>${t.nombre}</span>
+                                <button class="btn btn-danger btn-small" onclick="eliminarTarea(${t.id})">🗑️</button>
+                            </div>
+                            <div class="tarea-criterios">
+                                ${t.criterios.map(c => `<span class="criterio-tag">${c}</span>`).join('')}
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }).join('');
+    }
+
+    function agregarAlumno() {
+        const nombre = document.getElementById('nombre-nuevo').value.trim();
+        if (!nombre) return;
+
+        alumnos.push({
+            id: Date.now(),
+            nombre: nombre,
+            seg: crearSeguimiento()
+        });
+
+        document.getElementById('nombre-nuevo').value = '';
+        guardarEnFirebase();
+        renderizar();
+        toggleFormNuevo();
+    }
+
+    function eliminarAlumno(id) {
+        if (confirm('¿Eliminar este alumno y todos sus datos?')) {
+            alumnos = alumnos.filter(a => a.id !== id);
+            delete notas[id];
+            if (seleccionado && seleccionado.id === id) {
+                seleccionado = null;
+            }
+            guardarEnFirebase();
+            renderizar();
+        }
+    }
+
+    function seleccionarAlumno(id) {
+        seleccionado = alumnos.find(a => a.id === id);
+        semanaActual = 1;
+        renderizar();
+    }
+
+    function cambiarSemana(s) {
+        semanaActual = s;
+        renderizar();
+    }
+
+    function toggleCategoria(cat) {
+        categoriaExpandida = categoriaExpandida === cat ? null : cat;
+        renderizar();
+    }
+
+    function asignarTaller(taller) {
+        if (!seleccionado) return;
+        const alumno = alumnos.find(a => a.id === seleccionado.id);
+        alumno.seg['s' + semanaActual].taller = taller;
+        alumno.seg['s' + semanaActual].tareaAsignada = null;
+        seleccionado = alumno;
+        guardarEnFirebase();
+        renderizar();
+    }
+
+    function asignarTareaSemana(tareaId) {
+        if (!seleccionado) return;
+        const alumno = alumnos.find(a => a.id === seleccionado.id);
+        alumno.seg['s' + semanaActual].tareaAsignada = tareaId ? parseInt(tareaId) : null;
+        seleccionado = alumno;
+        guardarEnFirebase();
+        renderizar();
+    }
+
+    function actualizarValor(cat, idx, dia, valor) {
+        if (!seleccionado) return;
+        const alumno = alumnos.find(a => a.id === seleccionado.id);
+        alumno.seg['s' + semanaActual].dias['d' + dia][cat][idx] = valor;
+        seleccionado = alumno;
+        guardarEnFirebase();
+    }
+
+    function actualizarTarea(criterioIdx, dia, valor) {
+        if (!seleccionado) return;
+        const alumno = alumnos.find(a => a.id === seleccionado.id);
+        alumno.seg['s' + semanaActual].dias['d' + dia].tarea[criterioIdx] = valor;
+        seleccionado = alumno;
+        guardarEnFirebase();
+    }
+
+    function agregarNota() {
+        const input = document.getElementById('nota-nueva');
+        const texto = input.value.trim();
+        
+        if (!texto || !seleccionado) return;
+
+        if (!notas[seleccionado.id]) {
+            notas[seleccionado.id] = [];
+        }
+
+        notas[seleccionado.id].push({
+            txt: texto,
+            fecha: new Date().toLocaleDateString(),
+            sem: semanaActual
+        });
+
+        input.value = '';
+        guardarEnFirebase();
+        renderizar();
+    }
+
+    function generarComentario(hastaS) {
+        if (!seleccionado) return '';
+        const al = seleccionado;
+        let txt = al.nombre + '\n';
+        txt += (hastaS === 4 ? 'EVALUACIÓN MENSUAL' : 'SEMANA ' + hastaS) + '\n';
+        txt += '='.repeat(60) + '\n\n';
+        txt += 'Comentario generado automáticamente.\n';
+        txt += 'Sistema de seguimiento con sincronización en tiempo real.\n';
+        return txt;
+    }
+
+    function mostrarComentario(hastaS) {
+        const texto = generarComentario(hastaS);
+        document.getElementById('texto-comentario').textContent = texto;
+        document.getElementById('modal-comentario').classList.add('show');
+    }
+
+    function cerrarModal() {
+        document.getElementById('modal-comentario').classList.remove('show');
+    }
+
+    function copiarComentario() {
+        const texto = document.getElementById('texto-comentario').textContent;
+        navigator.clipboard.writeText(texto).then(() => {
+            alert('✅ Comentario copiado');
+        });
+    }
+
+    function exportar() {
+        if (alumnos.length === 0) return;
+        let contenido = 'EVALUACIONES - ROTACIÓN DE TALLERES\n';
+        contenido += 'Generado el: ' + new Date().toLocaleDateString() + '\n\n';
+        alumnos.forEach(alumno => {
+            contenido += alumno.nombre + '\n' + '='.repeat(40) + '\n\n';
+        });
+        const blob = new Blob([contenido], { type: 'text/plain;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'evaluaciones_' + new Date().toISOString().split('T')[0] + '.txt';
+        link.click();
+        URL.revokeObjectURL(url);
+    }
+
+    function renderizar() {
+        document.getElementById('contador-alumnos').textContent = alumnos.length + ' alumnos';
+        document.getElementById('btn-exportar').disabled = alumnos.length === 0;
+
+        const listaAlumnos = document.getElementById('lista-alumnos');
+        if (alumnos.length === 0) {
+            listaAlumnos.innerHTML = '<p style="text-align: center; color: #9ca3af; padding: 20px; font-size: 13px;">No hay alumnos</p>';
+        } else {
+            listaAlumnos.innerHTML = alumnos.map(a => `
+                <button class="alumno-btn ${seleccionado && seleccionado.id === a.id ? 'active' : ''}"
+                        onclick="seleccionarAlumno(${a.id})">
+                    ${a.nombre}
+                </button>
+            `).join('');
+        }
+
+        const contentArea = document.getElementById('content-area');
+        
+        if (!seleccionado) {
+            contentArea.innerHTML = `
                 <div class="content-area">
                     <div class="placeholder">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                         </svg>
-                        <p>Selecciona un alumno para comenzar el seguimiento</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal Comentario -->
-    <div id="modal-comentario" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>📝 Comentario</h3>
-                <button class="btn-close" onclick="cerrarModal()">&times;</button>
-            </div>
-            <div class="modal-body">
-                <pre id="texto-comentario"></pre>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-primary" style="width: 100%;" onclick="copiarComentario()">📋 Copiar al Portapapeles</button>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // Variables globales
-        let alumnos = [];
-        let tareas = [];
-        let notas = {};
-        let seleccionado = null;
-        let semanaActual = 1;
-        let categoriaExpandida = 'actitudinales';
-        let tareasExpanded = false;
-
-        const talleres = ['Electricidad', 'Fontanería', 'Carpintería', 'Albañilería'];
-
-        // ACTIVIDADES ORIGINALES COMPLETAS
-        const actividadesElectricidadOriginal = [
-            {
-                nombre: "ACT1: Herramientas básicas (destornilladores, alicates, pelacables)",
-                criterios: [
-                    "Identificación correcta de herramientas",
-                    "Técnica de uso de destornilladores",
-                    "Manejo de alicates y pelacables",
-                    "Pelado y preparación de cables",
-                    "Mantenimiento de herramientas"
-                ]
-            },
-            {
-                nombre: "ACT2: Instrumentos de medida (voltímetro, amperímetro)",
-                criterios: [
-                    "Uso correcto del multímetro",
-                    "Medición de tensión y corriente",
-                    "Pruebas de continuidad",
-                    "Uso de pinzas amperimétricas",
-                    "Interpretación de medidas"
-                ]
-            },
-            {
-                nombre: "ACT3: Equipos de protección individual (EPIs)",
-                criterios: [
-                    "Selección de EPIs adecuados",
-                    "Uso correcto de guantes dieléctricos",
-                    "Verificación de herramientas aisladas",
-                    "Mantenimiento de EPIs",
-                    "Aplicación de normativa de seguridad"
-                ]
-            },
-            {
-                nombre: "ACT4: Riesgos eléctricos básicos",
-                criterios: [
-                    "Identificación de riesgos eléctricos",
-                    "Diferenciación contactos directos/indirectos",
-                    "Reconocimiento de situaciones peligrosas",
-                    "Conocimiento de primeros auxilios",
-                    "Aplicación de medidas preventivas"
-                ]
-            },
-            {
-                nombre: "ACT5: Procedimientos de seguridad (5 reglas de oro)",
-                criterios: [
-                    "Aplicación de las 5 reglas de oro",
-                    "Procedimiento de consignación",
-                    "Uso de detectores de tensión",
-                    "Señalización de zonas de trabajo",
-                    "Verificación de ausencia de tensión"
-                ]
-            },
-            {
-                nombre: "ACT6: Simbología eléctrica básica",
-                criterios: [
-                    "Reconocimiento de símbolos normalizados",
-                    "Dibujo de símbolos correctamente",
-                    "Aplicación de normativa UNE/IEC",
-                    "Interpretación de esquemas",
-                    "Uso de herramientas de dibujo técnico"
-                ]
-            },
-            {
-                nombre: "ACT7: Interpretación de planos unifilares",
-                criterios: [
-                    "Lectura de esquemas unifilares",
-                    "Identificación de circuitos de potencia",
-                    "Interpretación de protecciones",
-                    "Cálculos básicos de intensidades",
-                    "Detección de errores en esquemas"
-                ]
-            },
-            {
-                nombre: "ACT8: Circuitos de alumbrado completos",
-                criterios: [
-                    "Montaje de punto de luz simple",
-                    "Circuito conmutado (2 puntos)",
-                    "Circuito de cruzamiento (3+ puntos)",
-                    "Instalación de temporizadores",
-                    "Verificación y pruebas de funcionamiento"
-                ]
-            },
-            {
-                nombre: "ACT9: Circuitos de enchufes y fuerza",
-                criterios: [
-                    "Montaje de bases schuko",
-                    "Conexionado correcto con tierra",
-                    "Instalación de protección diferencial",
-                    "Enchufes especiales (baño/exterior)",
-                    "Verificación con comprobador"
-                ]
-            },
-            {
-                nombre: "ACT10: Instalación mixta y cuadro de distribución",
-                criterios: [
-                    "Diseño de instalación completa",
-                    "Cálculo de secciones de conductores",
-                    "Montaje del cuadro eléctrico",
-                    "Conexionado de líneas",
-                    "Etiquetado y puesta en servicio"
-                ]
-            }
-        ];
-
-        const actividadesFontaneriaOriginal = [
-            {
-                nombre: "ACT1: Herramientas de fontanería (llaves, cortatubos, soplete)",
-                criterios: [
-                    "Identificación correcta de herramientas",
-                    "Uso de llaves inglesas y estilson",
-                    "Técnica de corte de tubos",
-                    "Manejo de soplete para soldadura",
-                    "Mantenimiento de herramientas"
-                ]
-            },
-            {
-                nombre: "ACT2: Tipos de tuberías y conexiones",
-                criterios: [
-                    "Diferenciación PVC, cobre, PEX",
-                    "Elección de conexiones adecuadas",
-                    "Técnicas de unión por rosca",
-                    "Soldadura de tuberías de cobre",
-                    "Pruebas de estanqueidad"
-                ]
-            },
-            {
-                nombre: "ACT3: Instalación de sanitarios",
-                criterios: [
-                    "Montaje de inodoro completo",
-                    "Instalación de lavabo y grifería",
-                    "Conexión de desagües y sifones",
-                    "Nivelación y fijación correcta",
-                    "Pruebas de funcionamiento"
-                ]
-            },
-            {
-                nombre: "ACT4: Sistemas de desagüe y ventilación",
-                criterios: [
-                    "Cálculo de pendientes de desagüe",
-                    "Instalación de bajantes",
-                    "Sistema de ventilación primaria",
-                    "Prevención de sifonamiento",
-                    "Pruebas de drenaje correcto"
-                ]
-            },
-            {
-                nombre: "ACT5: Detección y reparación de fugas",
-                criterios: [
-                    "Localización de fugas",
-                    "Reparación de juntas y empaquetaduras",
-                    "Sustitución de secciones dañadas",
-                    "Uso de cintas y pastas sellantes",
-                    "Verificación final de estanqueidad"
-                ]
-            },
-            {
-                nombre: "ACT6: Instalación de grifería monomando",
-                criterios: [
-                    "Desmontaje de grifería antigua",
-                    "Preparación de superficies",
-                    "Colocación de juntas y arandelas",
-                    "Ajuste de caudal y temperatura",
-                    "Pruebas de estanqueidad y funcionamiento"
-                ]
-            },
-            {
-                nombre: "ACT7: Montaje de calentador eléctrico",
-                criterios: [
-                    "Elección de ubicación adecuada",
-                    "Fijación a pared de forma segura",
-                    "Conexiones de agua fría/caliente",
-                    "Conexión eléctrica con protección",
-                    "Puesta en marcha y regulación"
-                ]
-            },
-            {
-                nombre: "ACT8: Instalación de desagüe de lavadora",
-                criterios: [
-                    "Cálculo de desagüe sifónico",
-                    "Instalación de válvula antiretorno",
-                    "Conexión a bajante principal",
-                    "Pruebas de caudal y estanqueidad",
-                    "Ajuste de nivelación de máquina"
-                ]
-            }
-        ];
-
-        const actividadesCarpinteriaOriginal = [
-            {
-                nombre: "ACT1: Herramientas manuales (sierras, cepillos, formones)",
-                criterios: [
-                    "Identificación correcta de herramientas",
-                    "Técnica de corte con sierras",
-                    "Uso de cepillos para cepillado",
-                    "Manejo de formones para ensambles",
-                    "Afilado y mantenimiento"
-                ]
-            },
-            {
-                nombre: "ACT2: Medición y marcaje preciso",
-                criterios: [
-                    "Uso de metros y escuadras",
-                    "Técnicas de trazado exacto",
-                    "Transferencia de medidas",
-                    "Verificación de ángulos",
-                    "Precisión en cortes"
-                ]
-            },
-            {
-                nombre: "ACT3: Ensambles básicos (cola, clavos, tornillos)",
-                criterios: [
-                    "Preparación de superficies",
-                    "Aplicación correcta de cola",
-                    "Elección de clavos y tornillos",
-                    "Técnicas de atornillado",
-                    "Acabado de uniones"
-                ]
-            },
-            {
-                nombre: "ACT4: Trabajo con madera maciza",
-                criterios: [
-                    "Selección de maderas adecuadas",
-                    "Respeto por vetas y dirección",
-                    "Técnicas de cepillado manual",
-                    "Uniones en madera maciza",
-                    "Acabados naturales"
-                ]
-            },
-            {
-                nombre: "ACT5: Proyecto práctico (estantería o caja)",
-                criterios: [
-                    "Interpretación de plano simple",
-                    "Cálculo de materiales necesarios",
-                    "Secuencia correcta de montaje",
-                    "Calidad de acabados finales",
-                    "Funcionalidad del producto"
-                ]
-            },
-            {
-                nombre: "ACT6: Uso de herramientas eléctricas portátiles",
-                criterios: [
-                    "Manejo seguro de taladro",
-                    "Uso de sierra caladora",
-                    "Técnicas con lijadora orbital",
-                    "Ajuste de velocidades y potencias",
-                    "Mantenimiento básico de herramientas"
-                ]
-            },
-            {
-                nombre: "ACT7: Construcción de marco para cuadro",
-                criterios: [
-                    "Corte de ángulos a 45 grados",
-                    "Ensamblaje con ingletes",
-                    "Refuerzo de esquinas",
-                    "Acabado con lija y barniz",
-                    "Montaje final con vidrio y soporte"
-                ]
-            },
-            {
-                nombre: "ACT8: Reparación de mueble con daños",
-                criterios: [
-                    "Diagnóstico de daños",
-                    "Desmontaje de partes afectadas",
-                    "Sustitución de elementos rotos",
-                    "Refuerzo de estructura",
-                    "Acabado uniforme con pintura/barniz"
-                ]
-            }
-        ];
-
-        const actividadesAlbanileriaOriginal = [
-            {
-                nombre: "ACT1: Herramientas de albañilería (paletas, niveles, plomadas)",
-                criterios: [
-                    "Identificación correcta de herramientas",
-                    "Uso de paletas para mortero",
-                    "Manejo de niveles y plomadas",
-                    "Técnicas de aplomado",
-                    "Limpieza y mantenimiento"
-                ]
-            },
-            {
-                nombre: "ACT2: Preparación de morteros y pastas",
-                criterios: [
-                    "Proporciones correctas cemento/arena",
-                    "Mezclado homogéneo",
-                    "Control de consistencia",
-                    "Tiempos de fraguado",
-                    "Limpieza de herramientas"
-                ]
-            },
-            {
-                nombre: "ACT3: Asentado de ladrillos y bloques",
-                criterios: [
-                    "Tendido de hiladas niveladas",
-                    "Control de juntas horizontales",
-                    "Aplomado de paramentos",
-                    "Llenado de juntas verticales",
-                    "Aspecto final del muro"
-                ]
-            },
-            {
-                nombre: "ACT4: Revoques y enlucidos",
-                criterios: [
-                    "Preparación de superficie",
-                    "Aplicación de capa de agarre",
-                    "Técnica de revocado manual",
-                    "Regleado y alisado",
-                    "Acabado superficial"
-                ]
-            },
-            {
-                nombre: "ACT5: Solados y alicatados",
-                criterios: [
-                    "Preparación de lecho de arena",
-                    "Nivelación de base",
-                    "Colocación de baldosas",
-                    "Control de juntas",
-                    "Limpieza final"
-                ]
-            },
-            {
-                nombre: "ACT6: Construcción de tabique de ladrillo",
-                criterios: [
-                    "Trazo y replanteo en planta",
-                    "Asentado de primera hilada",
-                    "Control de plomos y niveles",
-                    "Encuentros con paredes existentes",
-                    "Acabado de juntas"
-                ]
-            },
-            {
-                nombre: "ACT7: Reparación de grietas y desconchones",
-                criterios: [
-                    "Preparación de superficie dañada",
-                    "Aplicación de imprimación",
-                    "Relleno con mortero de reparación",
-                    "Alisado y texturizado",
-                    "Acabado para pintura"
-                ]
-            },
-            {
-                nombre: "ACT8: Instalación de azulejos en pared",
-                criterios: [
-                    "Planeado de distribución",
-                    "Corte preciso de piezas",
-                    "Aplicación de adhesivo cerámico",
-                    "Colocación con cruceros",
-                    "Rejuntado y limpieza final"
-                ]
-            }
-        ];
-
-        // NUEVAS ACTIVIDADES DEL PDF COMPLETAS
-        const actividadesElectricidadNuevas = [
-            {
-                nombre: "E1: Descifrando el Código Eléctrico",
-                criterios: [
-                    "Identificación equipos y herramientas",
-                    "Uso seguro de herramientas eléctricas",
-                    "Interpretación de normativa básica",
-                    "Reconocimiento de componentes eléctricos",
-                    "Preparación del área de trabajo"
-                ]
-            },
-            {
-                nombre: "E2: El Laberinto de Tubos",
-                criterios: [
-                    "Planificación de rutas de canalización",
-                    "Corte y curvado de tubos",
-                    "Fijación correcta de soportes",
-                    "Instalación de cajas de registro",
-                    "Verificación de continuidad de canalizaciones"
-                ]
-            },
-            {
-                nombre: "E3: Tejiendo la Red",
-                criterios: [
-                    "Tendido correcto de conductores",
-                    "Identificación de colores normalizados",
-                    "Conexionado en derivaciones",
-                    "Uso de regletas de conexión",
-                    "Verificación de continuidad eléctrica"
-                ]
-            },
-            {
-                nombre: "E4: El Panel de Control",
-                criterios: [
-                    "Montaje de cuadro eléctrico",
-                    "Instalación de diferencial y magnetotérmicos",
-                    "Conexionado de bornas principales",
-                    "Identificación de circuitos",
-                    "Pruebas de funcionamiento del cuadro"
-                ]
-            },
-            {
-                nombre: "E5: Encendiendo la Magia",
-                criterios: [
-                    "Instalación de mecanismos (enchufes, interruptores)",
-                    "Conexionado correcto fase-neutro-tierra",
-                    "Nivelación y fijación de mecanismos",
-                    "Pruebas de funcionamiento",
-                    "Acabado y colocación de placas"
-                ]
-            },
-            {
-                nombre: "E6: Los 5 Circuitos Obligatorios",
-                criterios: [
-                    "Circuito de alumbrado básico",
-                    "Circuito de enchufes de uso general",
-                    "Circuito de cocina y horno",
-                    "Circuito de baño y zonas húmedas",
-                    "Circuito de lavadero y lavavajillas"
-                ]
-            },
-            {
-                nombre: "E7: Luz en Cada Rincón",
-                criterios: [
-                    "Instalación de puntos de luz",
-                    "Montaje de portalámparas y plafones",
-                    "Conexionado de conmutados",
-                    "Instalación de detectores de movimiento",
-                    "Regulación de intensidad con dimer"
-                ]
-            },
-            {
-                nombre: "E8: Verificando la Seguridad",
-                criterios: [
-                    "Comprobación de continuidad de tierra",
-                    "Medición de aislamiento",
-                    "Verificación de sensibilidad diferencial",
-                    "Comprobación de polaridad",
-                    "Documentación de certificado eléctrico"
-                ]
-            },
-            {
-                nombre: "E9: Coordinación con Fontanería",
-                criterios: [
-                    "Identificación de cruces con instalaciones de agua",
-                    "Respeto de distancias de seguridad",
-                    "Coordinación con otros oficios",
-                    "Planificación de rutas evitando conflictos",
-                    "Comunicación efectiva con equipo"
-                ]
-            },
-            {
-                nombre: "E10: MI PRIMERA INSTALACIÓN ELÉCTRICA COMPLETA",
-                criterios: [
-                    "Planificación integral de la instalación",
-                    "Ejecución de todos los circuitos",
-                    "Montaje completo del cuadro eléctrico",
-                    "Verificación de todas las protecciones",
-                    "Puesta en servicio y entrega final"
-                ]
-            }
-        ];
-
-        const actividadesFontaneriaNuevas = [
-            {
-                nombre: "F1: El Fontanero Ilustrado",
-                criterios: [
-                    "Identificación de materiales y herramientas",
-                    "Diferenciación tipos de tuberías",
-                    "Selección de materiales adecuados",
-                    "Organización del almacén",
-                    "Preparación de lista de materiales"
-                ]
-            },
-            {
-                nombre: "F2: Domando el PEX",
-                criterios: [
-                    "Corte preciso de tuberías PEX",
-                    "Uso de herramientas de prensado",
-                    "Realización de uniones estancas",
-                    "Instalación de abrazaderas y soportes",
-                    "Pruebas de presión iniciales"
-                ]
-            },
-            {
-                nombre: "F3: La Multicapa Perfecta",
-                criterios: [
-                    "Trabajo con tuberías multicapa",
-                    "Realización de curvados precisos",
-                    "Uso de herramientas de corte específicas",
-                    "Instalación de juntas y accesorios",
-                    "Montaje en instalaciones de calefacción"
-                ]
-            },
-            {
-                nombre: "F4: El Gran Desagüe",
-                criterios: [
-                    "Instalación de bajantes y desagües",
-                    "Cálculo de pendientes correctas",
-                    "Montaje de sifones y válvulas",
-                    "Sistema de ventilación primaria",
-                    "Pruebas de estanqueidad en desagües"
-                ]
-            },
-            {
-                nombre: "F5: Agua Caliente 24/7",
-                criterios: [
-                    "Instalación de calentador eléctrico",
-                    "Conexionado circuito agua caliente",
-                    "Aislamiento de tuberías",
-                    "Regulación de temperatura",
-                    "Pruebas de funcionamiento y seguridad"
-                ]
-            },
-            {
-                nombre: "F6: El Trono del Rey",
-                criterios: [
-                    "Instalación de inodoro completo",
-                    "Nivelación y fijación a suelo/pared",
-                    "Conexionado de entrada y desagüe",
-                    "Pruebas de descarga y estanqueidad",
-                    "Colocación de tapa y accesorios"
-                ]
-            },
-            {
-                nombre: "F7: Bajo Presión",
-                criterios: [
-                    "Pruebas de presión del sistema",
-                    "Detección y reparación de fugas",
-                    "Verificación de válvulas de seguridad",
-                    "Comprobación de caudal en puntos",
-                    "Documentación de pruebas realizadas"
-                ]
-            },
-            {
-                nombre: "F8: Coordinación Perfecta",
-                criterios: [
-                    "Coordinación con instalación eléctrica",
-                    "Respeto de espacios para otros oficios",
-                    "Planificación conjunta de rutas",
-                    "Comunicación con equipo de obra",
-                    "Solución de interferencias"
-                ]
-            },
-            {
-                nombre: "F9: Fontanero-Electricista",
-                criterios: [
-                    "Instalación de elementos mixtos",
-                    "Coordinación para puntos de agua caliente",
-                    "Montaje de aparatos con conexión eléctrica",
-                    "Respeto de normativas conjuntas",
-                    "Integración de sistemas"
-                ]
-            },
-            {
-                nombre: "F10: MI PRIMER BAÑO COMPLETO",
-                criterios: [
-                    "Instalación completa de fontanería en baño",
-                    "Montaje de todos los sanitarios",
-                    "Sistema completo de desagüe",
-                    "Pruebas integrales de funcionamiento",
-                    "Limpieza y entrega final"
-                ]
-            }
-        ];
-
-        const actividadesCarpinteriaNuevas = [
-            {
-                nombre: "C1: El Detective de Planos",
-                criterios: [
-                    "Interpretación correcta de documentación técnica",
-                    "Identificación de cotas y medidas",
-                    "Comprensión de símbolos y leyendas",
-                    "Extracción de información relevante",
-                    "Preparación de lista de materiales"
-                ]
-            },
-            {
-                nombre: "C2: El Almacén Perfecto",
-                criterios: [
-                    "Organización de materiales en almacén",
-                    "Transporte seguro de materiales",
-                    "Clasificación por tipos y usos",
-                    "Control de existencias",
-                    "Mantenimiento del orden y limpieza"
-                ]
-            },
-            {
-                nombre: "C3: Replanteo: El Arte de Marcar",
-                criterios: [
-                    "Transferencia de medidas del plano a realidad",
-                    "Uso de herramientas de marcaje",
-                    "Verificación de ángulos y escuadrados",
-                    "Marcaje preciso en diferentes superficies",
-                    "Ajuste de medidas según condiciones reales"
-                ]
-            },
-            {
-                nombre: "C4: Mi Primer Suelo Flotante",
-                criterios: [
-                    "Preparación de subbase nivelada",
-                    "Instalación de barrera de vapor",
-                    "Colocación de paneles con junta desplazada",
-                    "Montaje de perfiles y transiciones",
-                    "Acabado final y limpieza"
-                ]
-            },
-            {
-                nombre: "C5: Maestro del Zócalo",
-                criterios: [
-                    "Medición y corte preciso de zócalos",
-                    "Ajuste en esquinas internas y externas",
-                    "Fijación correcta a pared",
-                    "Acabado de juntas y encuentros",
-                    "Limpieza y protección final"
-                ]
-            },
-            {
-                nombre: "C6: El Premarco Perfecto",
-                criterios: [
-                    "Instalación de premarcos para puertas",
-                    "Nivelación y aplomado preciso",
-                    "Fijación estructural correcta",
-                    "Preparación para bisagras",
-                    "Acabado y masillado de juntas"
-                ]
-            },
-            {
-                nombre: "C7: Colgando Puertas como un Pro",
-                criterios: [
-                    "Montaje de bisagras y herrajes",
-                    "Colocación y ajuste de puertas",
-                    "Instalación de mecanismos de cierre",
-                    "Ajuste de holguras y funcionamiento",
-                    "Acabado final y lubricación"
-                ]
-            },
-            {
-                nombre: "C8: Armario Empotrado Paso a Paso",
-                criterios: [
-                    "Diseño y planificación del armario",
-                    "Montaje de estructura principal",
-                    "Instalación de estantes y barras",
-                    "Colocación de puertas y frontales",
-                    "Ajustes finales y acabados"
-                ]
-            },
-            {
-                nombre: "C9: Cocina Completa: De Cero a Chef",
-                criterios: [
-                    "Instalación de mobiliario de cocina",
-                    "Montaje de encimeras y zócalos",
-                    "Ajuste de puertas y cajones",
-                    "Instalación de electrodomésticos integrados",
-                    "Acabado final y limpieza"
-                ]
-            },
-            {
-                nombre: "C10: MI PRIMERA HABITACIÓN COMPLETA",
-                criterios: [
-                    "Instalación completa de suelo flotante",
-                    "Montaje de todo el mobiliario",
-                    "Colocación de puertas y zócalos",
-                    "Integración de todos los elementos",
-                    "Limpieza y entrega final"
-                ]
-            }
-        ];
-
-        const actividadesAlbanileriaNuevas = [
-            {
-                nombre: "A1: Inspector de Obra - Mi Primera Visita",
-                criterios: [
-                    "Interpretación de planos y documentación",
-                    "Realización de croquis y mediciones",
-                    "Identificación de elementos constructivos",
-                    "Toma de datos en campo",
-                    "Preparación de informe de visita"
-                ]
-            },
-            {
-                nombre: "A2: El Alquimista de los Morteros",
-                criterios: [
-                    "Dosificación correcta de componentes",
-                    "Mezclado homogéneo de morteros",
-                    "Control de consistencia y trabajabilidad",
-                    "Preparación de pastas de agarre",
-                    "Limpieza y mantenimiento de herramientas"
-                ]
-            },
-            {
-                nombre: "A3: Levantando Paredes - El Muro Perfecto",
-                criterios: [
-                    "Asentado de hiladas niveladas",
-                    "Control de plomos y escuadras",
-                    "Llenado completo de juntas",
-                    "Ejecución de encuentros y esquinas",
-                    "Acabado superficial del muro"
-                ]
-            },
-            {
-                nombre: "A4: Tabiquería Seca - Rápido y Limpio",
-                criterios: [
-                    "Montaje de estructura metálica",
-                    "Colocación de placas de yeso",
-                    "Fijación correcta y estanca",
-                    "Preparación para instalaciones",
-                    "Acabado de juntas entre placas"
-                ]
-            },
-            {
-                nombre: "A5: El Cirujano de la Pared - Rozas Perfectas",
-                criterios: [
-                    "Marcaje preciso de rozas",
-                    "Ejecución de cortes limpios",
-                    "Respeto de profundidades y anchos",
-                    "Preparación para tubos y conducciones",
-                    "Relleno y acabado posterior"
-                ]
-            },
-            {
-                nombre: "A6: Paredes Listas para Pintar - El Arte del Yeso",
-                criterios: [
-                    "Aplicación de capa de agarre",
-                    "Extendido y regleado de yeso",
-                    "Alisado superficial perfecto",
-                    "Control de espesores uniformes",
-                    "Acabado listo para pintura"
-                ]
-            },
-            {
-                nombre: "A7: El Maestro del Enfoscado - Paredes Exteriores",
-                criterios: [
-                    "Preparación de paramento exterior",
-                    "Aplicación de enfoscado de cemento",
-                    "Regleado y alisado de capa",
-                    "Texturizado superficial adecuado",
-                    "Curado y protección del enfoscado"
-                ]
-            },
-            {
-                nombre: "A8: Alicatando el Baño Perfecto",
-                criterios: [
-                    "Planeado de distribución de azulejos",
-                    "Corte preciso de piezas",
-                    "Aplicación de adhesivo cerámico",
-                    "Colocación con junta uniforme",
-                    "Rejuntado y limpieza final"
-                ]
-            },
-            {
-                nombre: "A9: Solando el Salón - Pavimento Perfecto",
-                criterios: [
-                    "Preparación de solera nivelada",
-                    "Tendido de lecho de mortero",
-                    "Colocación de baldosas niveladas",
-                    "Control de juntas y alineaciones",
-                    "Limpieza y protección final"
-                ]
-            },
-            {
-                nombre: "A10: MI PRIMER BAÑO COMPLETO - De Obra a Joya",
-                criterios: [
-                    "Ejecución completa de albañilería en baño",
-                    "Tabiquería y revestimientos",
-                    "Solado y alicatado integral",
-                    "Preparación para otros oficios",
-                    "Limpieza y entrega final"
-                ]
-            },
-            {
-                nombre: "TAB1: Pladur Pro - Tabiques Completos con Aislamiento",
-                criterios: [
-                    "Montaje de estructura metálica",
-                    "Colocación de placas de yeso laminado",
-                    "Instalación de material aislante",
-                    "Fijación correcta y estanca",
-                    "Acabado de juntas y preparación para pintura"
-                ]
-            },
-            {
-                nombre: "TAB2: Techos Suspendidos - El Quinto Plano",
-                criterios: [
-                    "Instalación de estructura de techo suspendido",
-                    "Nivelación precisa del falso techo",
-                    "Colocación de placas de yeso",
-                    "Integración de puntos de luz",
-                    "Acabado de juntas y esquinas"
-                ]
-            },
-            {
-                nombre: "PINT1: Preparando el Lienzo - Acabados Previos",
-                criterios: [
-                    "Limpieza y preparación de superficies",
-                    "Aplicación de imprimaciones",
-                    "Relleno de grietas y agujeros",
-                    "Lijado uniforme de paredes",
-                    "Protección de elementos no pintables"
-                ]
-            },
-            {
-                nombre: "PINT2: Pintando Profesionalmente - Temple y Plástica",
-                criterios: [
-                    "Mezclado correcto de pinturas",
-                    "Aplicación de primera mano uniforme",
-                    "Técnica de pintado sin marcas",
-                    "Aplicación de segunda mano perfecta",
-                    "Limpieza de herramientas y área"
-                ]
-            },
-            {
-                nombre: "PINT3: El Arte del Detalle - Esmaltes y Decoración",
-                criterios: [
-                    "Pintura de carpinterías y molduras",
-                    "Aplicación de esmaltes y barnices",
-                    "Técnicas de efectos decorativos",
-                    "Acabado perfecto en detalles",
-                    "Protección y limpieza final"
-                ]
-            }
-        ];
-
-        const aspectosData = [
-            {
-                categoria: 'actitudinales',
-                titulo: '👤 Actitudinales',
-                items: [
-                    {
-                        nombre: 'Puntualidad',
-                        opciones: ['', '⏰ A la hora', '🕐 Retraso 5-10m', '⏳ Tarde +10m', '❌ Falta just', '⛔ Falta no just']
-                    },
-                    {
-                        nombre: 'Actitud',
-                        opciones: ['', '🌟 Proactivo', '✅ Positiva', '😐 Pasivo', '😞 Desmotivado', '➖ No observado']
-                    },
-                    {
-                        nombre: 'Trabajo equipo',
-                        opciones: ['', '🤝 Colabora', '✅ Bien', '🙋 Solo', '⚠️ Conflictos', '➖ No observado']
-                    }
-                ]
-            },
-            {
-                categoria: 'progreso',
-                titulo: '📈 Progreso',
-                items: [
-                    {
-                        nombre: 'Evolución',
-                        opciones: ['', '🚀 Mejora notable', '✅ Al ritmo', '🐌 Lento', '🔄 Estancado', '➖ No observado']
-                    },
-                    {
-                        nombre: 'Autonomía',
-                        opciones: ['', '💪 Independiente', '✅ Poca super', '🙋 Pregunta mucho', '👨‍🏫 Acompañamiento', '➖ No observado']
-                    },
-                    {
-                        nombre: 'Resolución problemas',
-                        opciones: ['', '🧩 Solo', '✅ Con ayuda', '🤔 Se bloquea', '🆘 No sabe', '➖ No observado']
-                    }
-                ]
-            }
-        ];
-
-        // Sistema de almacenamiento
-        const storage = {
-            get: function(key) {
-                try {
-                    const data = localStorage.getItem(key);
-                    return data ? JSON.parse(data) : null;
-                } catch(e) {
-                    console.error('Error al leer:', e);
-                    return null;
-                }
-            },
-            set: function(key, value) {
-                try {
-                    localStorage.setItem(key, JSON.stringify(value));
-                    return true;
-                } catch(e) {
-                    console.error('Error al guardar:', e);
-                    return false;
-                }
-            }
-        };
-
-        // Inicialización
-        window.onload = function() {
-            cargarDatos();
-        };
-
-        function cargarDatos() {
-            const data = storage.get('seguimiento-rotacion-v1');
-            if (data) {
-                alumnos = data.alumnos || [];
-                notas = data.notas || {};
-                tareas = data.tareas || [];
-            }
-            renderizar();
-        }
-
-        function guardarDatos() {
-            storage.set('seguimiento-rotacion-v1', {
-                alumnos: alumnos,
-                notas: notas,
-                tareas: tareas
-            });
-        }
-
-        function cargarTodasActividades() {
-            if (confirm('¿Cargar TODAS las actividades originales y nuevas? Esto añadirá 73 actividades.')) {
-                let totalAgregadas = 0;
-                
-                // Cargar actividades por taller
-                const todosTalleres = [
-                    { 
-                        taller: 'Electricidad', 
-                        originales: actividadesElectricidadOriginal, 
-                        nuevas: actividadesElectricidadNuevas 
-                    },
-                    { 
-                        taller: 'Fontanería', 
-                        originales: actividadesFontaneriaOriginal, 
-                        nuevas: actividadesFontaneriaNuevas 
-                    },
-                    { 
-                        taller: 'Carpintería', 
-                        originales: actividadesCarpinteriaOriginal, 
-                        nuevas: actividadesCarpinteriaNuevas 
-                    },
-                    { 
-                        taller: 'Albañilería', 
-                        originales: actividadesAlbanileriaOriginal, 
-                        nuevas: actividadesAlbanileriaNuevas 
-                    }
-                ];
-
-                todosTalleres.forEach(tallerData => {
-                    // Cargar originales
-                    tallerData.originales.forEach(act => {
-                        const existe = tareas.find(t => t.nombre === act.nombre && t.taller === tallerData.taller);
-                        if (!existe) {
-                            tareas.push({
-                                id: Date.now() + totalAgregadas,
-                                taller: tallerData.taller,
-                                nombre: act.nombre,
-                                criterios: act.criterios,
-                                tipo: 'original'
-                            });
-                            totalAgregadas++;
-                        }
-                    });
-
-                    // Cargar nuevas
-                    tallerData.nuevas.forEach(act => {
-                        const existe = tareas.find(t => t.nombre === act.nombre && t.taller === tallerData.taller);
-                        if (!existe) {
-                            tareas.push({
-                                id: Date.now() + totalAgregadas,
-                                taller: tallerData.taller,
-                                nombre: act.nombre,
-                                criterios: act.criterios,
-                                tipo: 'nueva'
-                            });
-                            totalAgregadas++;
-                        }
-                    });
-                });
-
-                guardarDatos();
-                alert(`✅ Se han agregado ${totalAgregadas} actividades:\n• Electricidad: 10 originales + 10 nuevas\n• Fontanería: 8 originales + 10 nuevas\n• Carpintería: 8 originales + 10 nuevas\n• Albañilería: 8 originales + 15 nuevas`);
-                renderizarTareas();
-            }
-        }
-
-        // ... (el resto de las funciones se mantienen igual)
-        function crearSeguimiento() {
-            const seg = {};
-            for (let s = 1; s <= 4; s++) {
-                seg['s' + s] = {
-                    taller: null,
-                    tareaAsignada: null,
-                    dias: {}
-                };
-                for (let d = 1; d <= 5; d++) {
-                    seg['s' + s].dias['d' + d] = {
-                        tarea: {},
-                        actitudinales: {},
-                        progreso: {}
-                    };
-                    
-                    aspectosData.forEach(cat => {
-                        cat.items.forEach((item, idx) => {
-                            seg['s' + s].dias['d' + d][cat.categoria][idx] = '';
-                        });
-                    });
-                }
-            }
-            return seg;
-        }
-
-        function toggleFormNuevo() {
-            const form = document.getElementById('form-nuevo');
-            form.style.display = form.style.display === 'none' ? 'block' : 'none';
-        }
-
-        function toggleFormTareas() {
-            const form = document.getElementById('form-tareas');
-            form.style.display = form.style.display === 'none' ? 'block' : 'none';
-            if (form.style.display === 'block') {
-                renderizarTareas();
-            }
-        }
-
-        function toggleTareasContent() {
-            tareasExpanded = !tareasExpanded;
-            const content = document.getElementById('tareas-content');
-            const arrow = document.getElementById('tareas-arrow');
-            content.classList.toggle('expanded');
-            arrow.textContent = tareasExpanded ? '▲' : '▼';
-        }
-
-        function toggleFormNuevaTarea() {
-            const form = document.getElementById('form-nueva-tarea');
-            form.style.display = form.style.display === 'none' ? 'block' : 'none';
-            if (form.style.display === 'block') {
-                document.getElementById('nueva-tarea-nombre').value = '';
-                const inputs = document.querySelectorAll('.criterio-input');
-                inputs.forEach(inp => inp.value = '');
-            }
-        }
-
-        function agregarCriterioInput() {
-            const container = document.getElementById('criterios-inputs');
-            const input = document.createElement('input');
-            input.type = 'text';
-            input.className = 'criterio-input';
-            input.placeholder = 'Criterio ' + (container.children.length + 1);
-            container.appendChild(input);
-        }
-
-        function guardarTarea() {
-            const taller = document.getElementById('nueva-tarea-taller').value;
-            const nombre = document.getElementById('nueva-tarea-nombre').value.trim();
-            const inputs = document.querySelectorAll('.criterio-input');
-            const criterios = [];
-            inputs.forEach(inp => {
-                if (inp.value.trim()) {
-                    criterios.push(inp.value.trim());
-                }
-            });
-
-            if (!nombre) {
-                alert('Por favor, ingresa un nombre para la tarea');
-                return;
-            }
-
-            if (criterios.length === 0) {
-                alert('Por favor, añade al menos un criterio de evaluación');
-                return;
-            }
-
-            tareas.push({
-                id: Date.now(),
-                taller: taller,
-                nombre: nombre,
-                criterios: criterios,
-                tipo: 'manual'
-            });
-
-            guardarDatos();
-            toggleFormNuevaTarea();
-            renderizarTareas();
-        }
-
-        function eliminarTarea(id) {
-            if (confirm('Eliminar esta tarea?')) {
-                tareas = tareas.filter(t => t.id !== id);
-                guardarDatos();
-                renderizarTareas();
-            }
-        }
-
-        function renderizarTareas() {
-            const lista = document.getElementById('lista-tareas');
-            
-            if (tareas.length === 0) {
-                lista.innerHTML = '<p style="text-align: center; color: #6b7280; padding: 20px;">No hay tareas. Haz clic en "Cargar Todas" para cargar actividades predefinidas.</p>';
-                return;
-            }
-
-            // Agrupar tareas por taller
-            const tareasPorTaller = {};
-            talleres.forEach(t => tareasPorTaller[t] = []);
-            tareas.forEach(t => {
-                if (tareasPorTaller[t.taller]) {
-                    tareasPorTaller[t.taller].push(t);
-                }
-            });
-
-            lista.innerHTML = talleres.map(taller => {
-                const tareasDelTaller = tareasPorTaller[taller];
-                if (tareasDelTaller.length === 0) return '';
-                
-                // Separar por tipo
-                const originales = tareasDelTaller.filter(t => t.tipo === 'original');
-                const nuevas = tareasDelTaller.filter(t => t.tipo === 'nueva');
-                const manuales = tareasDelTaller.filter(t => t.tipo === 'manual');
-                
-                return `
-                    <div class="taller-group">
-                        <div class="taller-header">
-                            <div class="taller-titulo">🔧 ${taller}</div>
-                            <div style="color: #6b7280; font-size: 13px;">${tareasDelTaller.length} tareas</div>
-                        </div>
-                        
-                        ${originales.length > 0 ? `
-                            <div class="desplegable-tipo">
-                                <div class="desplegable-header" onclick="toggleDesplegable(this)">
-                                    <span>📚 Actividades Originales (${originales.length})</span>
-                                    <span>▼</span>
-                                </div>
-                                <div class="desplegable-content">
-                                    ${originales.map(t => `
-                                        <div class="tarea-item">
-                                            <div class="tarea-titulo">
-                                                <span>${t.nombre}</span>
-                                                <button class="btn btn-danger btn-small" onclick="eliminarTarea(${t.id})">🗑️</button>
-                                            </div>
-                                            <div class="tarea-criterios">
-                                                ${t.criterios.map(c => `<span class="criterio-tag">${c}</span>`).join('')}
-                                            </div>
-                                        </div>
-                                    `).join('')}
-                                </div>
-                            </div>
-                        ` : ''}
-                        
-                        ${nuevas.length > 0 ? `
-                            <div class="desplegable-tipo">
-                                <div class="desplegable-header" onclick="toggleDesplegable(this)">
-                                    <span>🆕 Actividades Nuevas (${nuevas.length})</span>
-                                    <span>▼</span>
-                                </div>
-                                <div class="desplegable-content">
-                                    ${nuevas.map(t => `
-                                        <div class="tarea-item">
-                                            <div class="tarea-titulo">
-                                                <span>${t.nombre}</span>
-                                                <button class="btn btn-danger btn-small" onclick="eliminarTarea(${t.id})">🗑️</button>
-                                            </div>
-                                            <div class="tarea-criterios">
-                                                ${t.criterios.map(c => `<span class="criterio-tag">${c}</span>`).join('')}
-                                            </div>
-                                        </div>
-                                    `).join('')}
-                                </div>
-                            </div>
-                        ` : ''}
-                        
-                        ${manuales.length > 0 ? `
-                            <div class="desplegable-tipo">
-                                <div class="desplegable-header" onclick="toggleDesplegable(this)">
-                                    <span>✏️ Actividades Manuales (${manuales.length})</span>
-                                    <span>▼</span>
-                                </div>
-                                <div class="desplegable-content">
-                                    ${manuales.map(t => `
-                                        <div class="tarea-item">
-                                            <div class="tarea-titulo">
-                                                <span>${t.nombre}</span>
-                                                <button class="btn btn-danger btn-small" onclick="eliminarTarea(${t.id})">🗑️</button>
-                                            </div>
-                                            <div class="tarea-criterios">
-                                                ${t.criterios.map(c => `<span class="criterio-tag">${c}</span>`).join('')}
-                                            </div>
-                                        </div>
-                                    `).join('')}
-                                </div>
-                            </div>
-                        ` : ''}
-                    </div>
-                `;
-            }).join('');
-        }
-
-        function toggleDesplegable(element) {
-            const content = element.nextElementSibling;
-            const arrow = element.querySelector('span:last-child');
-            content.classList.toggle('expanded');
-            arrow.textContent = content.classList.contains('expanded') ? '▲' : '▼';
-        }
-
-        function agregarAlumno() {
-            const nombre = document.getElementById('nombre-nuevo').value.trim();
-
-            if (!nombre) return;
-
-            alumnos.push({
-                id: Date.now(),
-                nombre: nombre,
-                seg: crearSeguimiento()
-            });
-
-            document.getElementById('nombre-nuevo').value = '';
-            guardarDatos();
-            renderizar();
-            toggleFormNuevo();
-        }
-
-        function eliminarAlumno(id) {
-            if (confirm('Eliminar este alumno y todos sus datos?')) {
-                alumnos = alumnos.filter(a => a.id !== id);
-                delete notas[id];
-                if (seleccionado && seleccionado.id === id) {
-                    seleccionado = null;
-                }
-                guardarDatos();
-                renderizar();
-            }
-        }
-
-        function seleccionarAlumno(id) {
-            seleccionado = alumnos.find(a => a.id === id);
-            semanaActual = 1;
-            renderizar();
-        }
-
-        function cambiarSemana(s) {
-            semanaActual = s;
-            renderizar();
-        }
-
-        function toggleCategoria(cat) {
-            categoriaExpandida = categoriaExpandida === cat ? null : cat;
-            renderizar();
-        }
-
-        function asignarTaller(taller) {
-            if (!seleccionado) return;
-            
-            const alumno = alumnos.find(a => a.id === seleccionado.id);
-            alumno.seg['s' + semanaActual].taller = taller;
-            alumno.seg['s' + semanaActual].tareaAsignada = null;
-            seleccionado = alumno;
-            guardarDatos();
-            renderizar();
-        }
-
-        function asignarTareaSemana(tareaId) {
-            if (!seleccionado) return;
-            
-            const alumno = alumnos.find(a => a.id === seleccionado.id);
-            alumno.seg['s' + semanaActual].tareaAsignada = tareaId ? parseInt(tareaId) : null;
-            seleccionado = alumno;
-            guardarDatos();
-            renderizar();
-        }
-
-        function actualizarValor(cat, idx, dia, valor) {
-            if (!seleccionado) return;
-            
-            const alumno = alumnos.find(a => a.id === seleccionado.id);
-            alumno.seg['s' + semanaActual].dias['d' + dia][cat][idx] = valor;
-            seleccionado = alumno;
-            guardarDatos();
-        }
-
-        function actualizarTarea(criterioIdx, dia, valor) {
-            if (!seleccionado) return;
-            
-            const alumno = alumnos.find(a => a.id === seleccionado.id);
-            alumno.seg['s' + semanaActual].dias['d' + dia].tarea[criterioIdx] = valor;
-            seleccionado = alumno;
-            guardarDatos();
-        }
-
-        function agregarNota() {
-            const input = document.getElementById('nota-nueva');
-            const texto = input.value.trim();
-            
-            if (!texto || !seleccionado) return;
-
-            if (!notas[seleccionado.id]) {
-                notas[seleccionado.id] = [];
-            }
-
-            notas[seleccionado.id].push({
-                txt: texto,
-                fecha: new Date().toLocaleDateString(),
-                sem: semanaActual
-            });
-
-            input.value = '';
-            guardarDatos();
-            renderizar();
-        }
-
-        function generarComentario(hastaS) {
-            if (!seleccionado) return '';
-
-            const al = seleccionado;
-            let txt = al.nombre + '\n';
-            txt += (hastaS === 4 ? 'EVALUACIÓN MENSUAL' : 'SEMANA ' + hastaS) + '\n';
-            txt += '='.repeat(60) + '\n\n';
-
-            const conteo = {};
-            const rotaciones = [];
-
-            for (let s = 1; s <= hastaS; s++) {
-                const semData = al.seg['s' + s];
-                if (!semData) continue;
-
-                if (semData.taller) {
-                    const tarea = semData.tareaAsignada ? tareas.find(t => t.id === semData.tareaAsignada) : null;
-                    rotaciones.push({
-                        semana: s,
-                        taller: semData.taller,
-                        tarea: tarea ? tarea.nombre : 'Sin tarea asignada'
-                    });
-                }
-
-                Object.values(semData.dias).forEach(diaData => {
-                    ['actitudinales', 'progreso', 'tarea'].forEach(cat => {
-                        if (diaData[cat]) {
-                            Object.values(diaData[cat]).forEach(val => {
-                                if (val && val !== '' && !val.includes('No observado')) {
-                                    conteo[val] = (conteo[val] || 0) + 1;
-                                }
-                            });
-                        }
-                    });
-                });
-            }
-
-            if (rotaciones.length > 0) {
-                txt += 'ROTACIÓN POR TALLERES:\n';
-                rotaciones.forEach(r => {
-                    txt += '• Semana ' + r.semana + ': ' + r.taller + ' - ' + r.tarea + '\n';
-                });
-                txt += '\n';
-            }
-
-            const notasAl = (notas[al.id] || []).filter(n => n.sem <= hastaS);
-            let total = 0;
-            Object.values(conteo).forEach(v => total += v);
-
-            if (total > 0) {
-                txt += 'RESUMEN DE OBSERVACIONES:\n';
-                Object.entries(conteo)
-                    .sort((a, b) => b[1] - a[1])
-                    .forEach(([k, v]) => {
-                        txt += '• ' + k + ': ' + v + ' registros\n';
-                    });
-                txt += '\n';
-            }
-
-            if (notasAl.length > 0) {
-                txt += 'NOTAS ADICIONALES DEL FORMADOR:\n';
-                notasAl.forEach(n => {
-                    txt += '• ' + n.txt + ' (Semana ' + n.sem + ' - ' + n.fecha + ')\n';
-                });
-                txt += '\n';
-            }
-
-            txt += 'VALORACIÓN PROFESIONAL Y RECOMENDACIONES:\n';
-            txt += '-'.repeat(60) + '\n\n';
-
-            if (total < 10) {
-                txt += 'El periodo de observación registrado hasta el momento resulta insuficiente para emitir una valoración completa y fundamentada del desempeño de ' + al.nombre + ' en el sistema de rotación por talleres. Se requiere continuar con el seguimiento sistemático durante las próximas semanas para poder identificar patrones consistentes de comportamiento, áreas específicas de fortaleza y aspectos susceptibles de mejora en cada uno de los oficios.\n\n';
-                txt += 'RECOMENDACIONES INMEDIATAS:\n';
-                txt += '• Mantener la observación activa y registro diario en todas las áreas de evaluación durante cada rotación.\n';
-                txt += '• Prestar especial atención a la capacidad de adaptación a diferentes talleres y oficios.\n';
-                txt += '• Monitorear el desarrollo progresivo de habilidades técnicas básicas en cada especialidad.\n';
-                txt += '• Establecer comunicación regular para conocer sus preferencias y motivación hacia los diferentes oficios.';
-            } else {
-                const positivos = (conteo['🌟 Proactivo'] || 0) + (conteo['🚀 Mejora notable'] || 0) + 
-                                  (conteo['💪 Independiente'] || 0) + (conteo['✅ Positiva'] || 0) +
-                                  (conteo['✅ Excelente'] || 0) + (conteo['👍 Bien'] || 0);
-                const atencion = (conteo['😞 Desmotivado'] || 0) + (conteo['🔄 Estancado'] || 0) + 
-                                 (conteo['⚠️ Conflictos'] || 0) + (conteo['⏳ Tarde +10m'] || 0) + 
-                                 (conteo['⛔ Falta no just'] || 0) + (conteo['⚠️ Dificultad'] || 0);
-                
-                if (positivos > total * 0.3) {
-                    txt += al.nombre + ' está demostrando un desempeño destacado y comprometido en el sistema de rotación por talleres. Los datos recogidos durante el periodo de observación evidencian una evolución positiva y consistente, con especial mención a su capacidad de adaptación a diferentes entornos de trabajo y oficios. Su actitud proactiva hacia el aprendizaje, disposición colaborativa y versatilidad demostrada en las distintas especialidades le posicionan como un elemento valioso dentro del grupo.\n\n';
-                    txt += 'La capacidad mostrada para asimilar conocimientos diversos y la progresión técnica observada en múltiples áreas permiten anticipar un desarrollo exitoso en el ámbito de los oficios, con potencial para especializarse en aquellas áreas donde muestre mayor interés o aptitud natural.\n\n';
-                    txt += 'RECOMENDACIONES PARA POTENCIAR EL DESARROLLO:\n';
-                    txt += '• Identificar el o los talleres donde muestra mayor motivación y aptitud para orientar su formación futura.\n';
-                    txt += '• Fomentar su papel como referente positivo para compañeros con más dificultades de adaptación.\n';
-                    txt += '• Proponer gradualmente retos técnicos de mayor complejidad en sus áreas de fortaleza.\n';
-                    txt += '• Reconocer públicamente su capacidad de adaptación y progreso como modelo para el grupo.';
-                } else if (atencion > total * 0.3) {
-                    txt += 'Los datos recogidos durante el seguimiento de ' + al.nombre + ' en el sistema de rotación por talleres revelan la necesidad de implementar un plan de acompañamiento más cercano y personalizado. Se han identificado dificultades en la adaptación a los diferentes entornos de trabajo, aspectos motivacionales que pueden estar afectando el rendimiento, o desafíos específicos en el desarrollo de autonomía y constancia.\n\n';
-                    txt += 'El sistema de rotación puede resultar especialmente exigente para jóvenes en proceso de desarraigo, requiriendo una capacidad de adaptación constante que no siempre es fácil de desarrollar. Es fundamental abordar esta situación desde un enfoque integral, identificando si existen oficios específicos donde se sienta más cómodo o motivado, y trabajando sobre factores personales, sociales o contextuales que puedan estar interfiriendo.\n\n';
-                    txt += 'PLAN DE ACCIÓN RECOMENDADO:\n';
-                    txt += '• Establecer tutorías individuales semanales para crear un espacio de escucha y orientación sobre su experiencia en cada taller.\n';
-                    txt += '• Valorar si sería beneficioso una rotación más pausada o centrada en oficios específicos que despierten su interés.\n';
-                    txt += '• Investigar de manera empática factores externos que puedan estar afectando su capacidad de concentración y compromiso.\n';
-                    txt += '• Diseñar objetivos adaptados a su nivel actual en cada oficio, generando experiencias de éxito que fortalezcan su autoconfianza.\n';
-                    txt += '• Coordinar con el equipo educativo estrategias de apoyo específicas y considerar la posibilidad de acompañamiento especializado.';
-                } else {
-                    txt += al.nombre + ' está progresando de manera adecuada en el sistema de rotación por talleres, mostrando un desempeño que se ajusta a los objetivos formativos establecidos para esta fase exploratoria. Se observa regularidad en aspectos fundamentales como asistencia y actitud general, así como un desarrollo gradual de competencias básicas en los diferentes oficios trabajados.\n\n';
-                    txt += 'El ritmo de aprendizaje y adaptación es apropiado para el contexto de rotación, y no se detectan dificultades significativas que requieran intervención especial. Con el acompañamiento habitual del equipo formativo y manteniendo las condiciones actuales, se espera que el alumno vaya definiendo gradualmente sus preferencias y fortalezas hacia uno o varios oficios específicos.\n\n';
-                    txt += 'RECOMENDACIONES PARA CONSOLIDAR EL APRENDIZAJE:\n';
-                    txt += '• Mantener el seguimiento regular, observando en qué talleres muestra mayor motivación o facilidad natural.\n';
-                    txt += '• Dialogar con el alumno sobre su experiencia en cada oficio para identificar sus preferencias e intereses.\n';
-                    txt += '• Reforzar aquellas áreas donde muestre mayor interés para ayudarle en su proceso de orientación vocacional.\n';
-                    txt += '• Proponer pequeños desafíos en cada taller para estimular su desarrollo sin generar presión contraproducente.';
-                }
-            }
-
-            txt += '\n\n' + '='.repeat(60);
-            txt += '\nComentario generado el ' + new Date().toLocaleDateString();
-
-            return txt;
-        }
-
-        function mostrarComentario(hastaS) {
-            const texto = generarComentario(hastaS);
-            document.getElementById('texto-comentario').textContent = texto;
-            document.getElementById('modal-comentario').classList.add('show');
-        }
-
-        function cerrarModal() {
-            document.getElementById('modal-comentario').classList.remove('show');
-        }
-
-        function copiarComentario() {
-            const texto = document.getElementById('texto-comentario').textContent;
-            navigator.clipboard.writeText(texto).then(() => {
-                alert('✅ Comentario copiado al portapapeles');
-            });
-        }
-
-        function exportar() {
-            if (alumnos.length === 0) return;
-
-            let contenido = 'EVALUACIONES MENSUALES - ROTACIÓN DE TALLERES\n';
-            contenido += 'Generado el: ' + new Date().toLocaleDateString() + '\n';
-            contenido += '='.repeat(80) + '\n\n\n';
-
-            alumnos.forEach(alumno => {
-                seleccionado = alumno;
-                contenido += generarComentario(4);
-                contenido += '\n\n\n' + '='.repeat(80) + '\n\n\n';
-            });
-
-            const blob = new Blob([contenido], { type: 'text/plain;charset=utf-8' });
-            const url = URL.createObjectURL(blob);
-            const link = document.createElement('a');
-            link.href = url;
-            link.download = 'evaluaciones_rotacion_' + new Date().toISOString().split('T')[0] + '.txt';
-            link.click();
-            URL.revokeObjectURL(url);
-        }
-
-        function renderizar() {
-            document.getElementById('contador-alumnos').textContent = alumnos.length + ' alumnos';
-            document.getElementById('btn-exportar').disabled = alumnos.length === 0;
-
-            const listaAlumnos = document.getElementById('lista-alumnos');
-            if (alumnos.length === 0) {
-                listaAlumnos.innerHTML = '<p style="text-align: center; color: #9ca3af; padding: 20px; font-size: 13px;">No hay alumnos</p>';
-            } else {
-                listaAlumnos.innerHTML = alumnos.map(a => `
-                    <button class="alumno-btn ${seleccionado && seleccionado.id === a.id ? 'active' : ''}"
-                            onclick="seleccionarAlumno(${a.id})">
-                        ${a.nombre}
-                    </button>
-                `).join('');
-            }
-
-            const contentArea = document.getElementById('content-area');
-            
-            if (!seleccionado) {
-                contentArea.innerHTML = `
-                    <div class="content-area">
-                        <div class="placeholder">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                            </svg>
-                            <p>Selecciona un alumno para comenzar el seguimiento</p>
-                        </div>
-                    </div>
-                `;
-                return;
-            }
-
-            const tallerAsignado = seleccionado.seg['s' + semanaActual].taller;
-            const tareaAsignada = seleccionado.seg['s' + semanaActual].tareaAsignada;
-            const tareaObj = tareaAsignada ? tareas.find(t => t.id === tareaAsignada) : null;
-            const tareasDelTaller = tallerAsignado ? tareas.filter(t => t.taller === tallerAsignado) : [];
-
-            let html = `
-                <div>
-                    <div class="content-area">
-                        <div class="alumno-header">
-                            <div class="alumno-info">
-                                <h2>${seleccionado.nombre}</h2>
-                                <p>Sistema de Rotación por Talleres</p>
-                            </div>
-                            <button class="btn btn-delete" onclick="eliminarAlumno(${seleccionado.id})">🗑️ Eliminar</button>
-                        </div>
-
-                        ${tareas.length === 0 ? '<div class="info-banner">💡 <strong>Tip:</strong> Haz clic en "Cargar Todas" para cargar actividades predefinidas con sus criterios de evaluación.</div>' : ''}
-
-                        <div class="semanas-nav">
-                            ${[1,2,3,4].map(s => `
-                                <button class="semana-btn ${semanaActual === s ? 'active' : ''}" 
-                                        onclick="cambiarSemana(${s})">
-                                    Semana ${s}
-                                </button>
-                            `).join('')}
-                        </div>
-
-                        <div class="dias-header">
-                            ${[1,2,3,4,5].map(d => `<div class="dia-label">Día ${d}</div>`).join('')}
-                        </div>
-
-                        <div class="rotacion-section">
-                            <label class="rotacion-label">🔄 Taller de esta semana:</label>
-                            <select class="rotacion-select" onchange="asignarTaller(this.value)">
-                                <option value="">-- Seleccionar taller --</option>
-                                ${talleres.map(t => `
-                                    <option value="${t}" ${tallerAsignado === t ? 'selected' : ''}>
-                                        ${t}
-                                    </option>
-                                `).join('')}
-                            </select>
-
-                            ${tallerAsignado && tareasDelTaller.length > 0 ? `
-                                <div class="tarea-select-section">
-                                    <label class="tarea-select-label">📋 Tarea/Actividad asignada:</label>
-                                    <select class="tarea-select" onchange="asignarTareaSemana(this.value)">
-                                        <option value="">-- Sin tarea --</option>
-                                        ${tareasDelTaller.map(t => `
-                                            <option value="${t.id}" ${tareaAsignada === t.id ? 'selected' : ''}>
-                                                ${t.nombre}
-                                            </option>
-                                        `).join('')}
-                                    </select>
-                                </div>
-                            ` : tallerAsignado ? '<p style="text-align: center; color: #92400e; margin-top: 10px; font-size: 13px;">⚠️ No hay tareas para este taller. Carga actividades o créalas manualmente.</p>' : ''}
-                        </div>
-
-                        ${!tallerAsignado ? '<div style="text-align: center; padding: 20px; color: #6b7280; background: #fef3c7; border-radius: 8px; margin-bottom: 15px;">⚠️ Selecciona el taller de esta semana para continuar</div>' : ''}
-
-                        ${tareaObj ? `
-                            <div class="categoria">
-                                <div class="categoria-header" onclick="toggleCategoria('tarea')">
-                                    <span>🔧 ${tareaObj.nombre}</span>
-                                    <span>${categoriaExpandida === 'tarea' ? '▼' : '▶'}</span>
-                                </div>
-                                <div class="categoria-content ${categoriaExpandida === 'tarea' ? 'expanded' : ''}">
-                                    ${tareaObj.criterios.map((criterio, idx) => `
-                                        <div class="aspecto">
-                                            <div class="aspecto-nombre">${criterio}</div>
-                                            <div class="aspecto-dias">
-                                                ${[1,2,3,4,5].map(d => `
-                                                    <select onchange="actualizarTarea(${idx}, ${d}, this.value)">
-                                                        <option value="">-</option>
-                                                        <option value="✅ Excelente" ${seleccionado.seg['s' + semanaActual].dias['d' + d].tarea[idx] === '✅ Excelente' ? 'selected' : ''}>✅ Excelente</option>
-                                                        <option value="👍 Bien" ${seleccionado.seg['s' + semanaActual].dias['d' + d].tarea[idx] === '👍 Bien' ? 'selected' : ''}>👍 Bien</option>
-                                                        <option value="🔧 En proceso" ${seleccionado.seg['s' + semanaActual].dias['d' + d].tarea[idx] === '🔧 En proceso' ? 'selected' : ''}>🔧 En proceso</option>
-                                                        <option value="⚠️ Dificultad" ${seleccionado.seg['s' + semanaActual].dias['d' + d].tarea[idx] === '⚠️ Dificultad' ? 'selected' : ''}>⚠️ Dificultad</option>
-                                                        <option value="➖ No observado" ${seleccionado.seg['s' + semanaActual].dias['d' + d].tarea[idx] === '➖ No observado' ? 'selected' : ''}>➖ No observado</option>
-                                                    </select>
-                                                `).join('')}
-                                            </div>
-                                        </div>
-                                    `).join('')}
-                                </div>
-                            </div>
-                        ` : ''}
-
-                        ${aspectosData.map(cat => `
-                            <div class="categoria">
-                                <div class="categoria-header" onclick="toggleCategoria('${cat.categoria}')">
-                                    <span>${cat.titulo}</span>
-                                    <span>${categoriaExpandida === cat.categoria ? '▼' : '▶'}</span>
-                                </div>
-                                <div class="categoria-content ${categoriaExpandida === cat.categoria ? 'expanded' : ''}">
-                                    ${cat.items.map((item, idx) => `
-                                        <div class="aspecto">
-                                            <div class="aspecto-nombre">${item.nombre}</div>
-                                            <div class="aspecto-dias">
-                                                ${[1,2,3,4,5].map(d => `
-                                                    <select onchange="actualizarValor('${cat.categoria}', ${idx}, ${d}, this.value)">
-                                                        ${item.opciones.map(op => `
-                                                            <option value="${op}" ${seleccionado.seg['s' + semanaActual].dias['d' + d][cat.categoria][idx] === op ? 'selected' : ''}>
-                                                                ${op || '-'}
-                                                            </option>
-                                                        `).join('')}
-                                                    </select>
-                                                `).join('')}
-                                            </div>
-                                        </div>
-                                    `).join('')}
-                                </div>
-                            </div>
-                        `).join('')}
-                    </div>
-
-                    <div class="notas-section">
-                        <h3>📝 Notas adicionales</h3>
-                        <div class="notas-input">
-                            <input type="text" id="nota-nueva" placeholder="Añadir una nota..." 
-                                   onkeypress="if(event.key==='Enter')agregarNota()">
-                            <button class="btn btn-primary" onclick="agregarNota()">Añadir</button>
-                        </div>
-                        <div class="notas-lista">
-                            ${(notas[seleccionado.id] || []).map(n => `
-                                <div class="nota-item">
-                                    <div>${n.txt}</div>
-                                    <div class="nota-fecha">Semana ${n.sem} - ${n.fecha}</div>
-                                </div>
-                            `).join('') || '<p style="text-align: center; color: #6b7280;">No hay notas registradas</p>'}
-                        </div>
-                    </div>
-
-                    <div class="comentarios-section">
-                        <div class="comentarios-btns">
-                            <button class="btn-comentario" onclick="mostrarComentario(${semanaActual})">
-                                📄 Comentario Semana ${semanaActual}
-                            </button>
-                            <button class="btn-comentario mensual" onclick="mostrarComentario(4)">
-                                📋 Comentario Mensual
-                            </button>
-                        </div>
+                        <p>Selecciona un alumno para comenzar</p>
                     </div>
                 </div>
             `;
-
-            contentArea.innerHTML = html;
+            return;
         }
-    </script>
+
+        const tallerAsignado = seleccionado.seg['s' + semanaActual].taller;
+        const tareaAsignada = seleccionado.seg['s' + semanaActual].tareaAsignada;
+        const tareaObj = tareaAsignada ? tareas.find(t => t.id === tareaAsignada) : null;
+        const tareasDelTaller = tallerAsignado ? tareas.filter(t => t.taller === tallerAsignado) : [];
+
+        let html = `
+            <div>
+                <div class="content-area">
+                    <div class="alumno-header">
+                        <div class="alumno-info">
+                            <h2>${seleccionado.nombre}</h2>
+                            <p>Rotación por Talleres</p>
+                        </div>
+                        <button class="btn btn-delete" onclick="eliminarAlumno(${seleccionado.id})">🗑️ Eliminar</button>
+                    </div>
+
+                    <div class="semanas-nav">
+                        ${[1,2,3,4].map(s => `
+                            <button class="semana-btn ${semanaActual === s ? 'active' : ''}" 
+                                    onclick="cambiarSemana(${s})">
+                                Semana ${s}
+                            </button>
+                        `).join('')}
+                    </div>
+
+                    <div class="rotacion-section">
+                        <label class="rotacion-label">🔄 Taller de esta semana:</label>
+                        <select class="rotacion-select" onchange="asignarTaller(this.value)">
+                            <option value="">-- Seleccionar taller --</option>
+                            ${talleres.map(t => `
+                                <option value="${t}" ${tallerAsignado === t ? 'selected' : ''}>${t}</option>
+                            `).join('')}
+                        </select>
+
+                        ${tallerAsignado && tareasDelTaller.length > 0 ? `
+                            <div class="tarea-select-section">
+                                <label class="tarea-select-label">📋 Tarea asignada:</label>
+                                <select class="tarea-select" onchange="asignarTareaSemana(this.value)">
+                                    <option value="">-- Sin tarea --</option>
+                                    ${tareasDelTaller.map(t => `
+                                        <option value="${t.id}" ${tareaAsignada === t.id ? 'selected' : ''}>${t.nombre}</option>
+                                    `).join('')}
+                                </select>
+                            </div>
+                        ` : ''}
+                    </div>
+
+                    <div class="dias-header">
+                        ${[1,2,3,4,5].map(d => `<div class="dia-label">Día ${d}</div>`).join('')}
+                    </div>
+
+                    ${aspectosData.map(cat => `
+                        <div class="categoria">
+                            <div class="categoria-header" onclick="toggleCategoria('${cat.categoria}')">
+                                <span>${cat.titulo}</span>
+                                <span>${categoriaExpandida === cat.categoria ? '▼' : '▶'}</span>
+                            </div>
+                            <div class="categoria-content ${categoriaExpandida === cat.categoria ? 'expanded' : ''}">
+                                ${cat.items.map((item, idx) => `
+                                    <div class="aspecto">
+                                        <div class="aspecto-nombre">${item.nombre}</div>
+                                        <div class="aspecto-dias">
+                                            ${[1,2,3,4,5].map(d => `
+                                                <select onchange="actualizarValor('${cat.categoria}', ${idx}, ${d}, this.value)">
+                                                    ${item.opciones.map(op => `
+                                                        <option value="${op}" ${seleccionado.seg['s' + semanaActual].dias['d' + d][cat.categoria][idx] === op ? 'selected' : ''}>
+                                                            ${op || '-'}
+                                                        </option>
+                                                    `).join('')}
+                                                </select>
+                                            `).join('')}
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+
+                <div class="notas-section">
+                    <h3>📝 Notas adicionales</h3>
+                    <div class="notas-input">
+                        <input type="text" id="nota-nueva" placeholder="Añadir una nota..." 
+                               onkeypress="if(event.key==='Enter')agregarNota()">
+                        <button class="btn btn-primary" onclick="agregarNota()">Añadir</button>
+                    </div>
+                    <div class="notas-lista">
+                        ${(notas[seleccionado.id] || []).map(n => `
+                            <div class="nota-item">
+                                <div>${n.txt}</div>
+                                <div class="nota-fecha">Semana ${n.sem} - ${n.fecha}</div>
+                            </div>
+                        `).join('') || '<p style="text-align: center; color: #6b7280;">No hay notas</p>'}
+                    </div>
+                </div>
+
+                <div class="comentarios-section">
+                    <div class="comentarios-btns">
+                        <button class="btn-comentario" onclick="mostrarComentario(${semanaActual})">
+                            📄 Comentario Semana ${semanaActual}
+                        </button>
+                        <button class="btn-comentario mensual" onclick="mostrarComentario(4)">
+                            📋 Comentario Mensual
+                        </button>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        contentArea.innerHTML = html;
+    }
+</script>
+```
+
 </body>
 </html>
