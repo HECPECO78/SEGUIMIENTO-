@@ -884,67 +884,111 @@
 
     const talleres = ['Electricidad', 'Fontanería', 'Carpintería', 'Albañilería'];
 
-    // Datos de actividades (mantenidos del código original)
+    // ACTIVIDADES COMPLETAS - ELECTRICIDAD ORIGINALES
     const actividadesElectricidadOriginal = [
-        {
-            nombre: "ACT1: Herramientas básicas (destornilladores, alicates, pelacables)",
-            criterios: [
-                "Identificación correcta de herramientas",
-                "Técnica de uso de destornilladores",
-                "Manejo de alicates y pelacables",
-                "Pelado y preparación de cables",
-                "Mantenimiento de herramientas"
-            ]
-        },
-        {
-            nombre: "ACT2: Instrumentos de medida (voltímetro, amperímetro)",
-            criterios: [
-                "Uso correcto del multímetro",
-                "Medición de tensión y corriente",
-                "Pruebas de continuidad",
-                "Uso de pinzas amperimétricas",
-                "Interpretación de medidas"
-            ]
-        }
+        {nombre:"ACT1: Herramientas básicas",criterios:["Identificación correcta","Técnica destornilladores","Manejo alicates","Pelado cables","Mantenimiento"]},
+        {nombre:"ACT2: Instrumentos de medida",criterios:["Uso multímetro","Medición tensión","Pruebas continuidad","Pinzas amperimétricas","Interpretación medidas"]},
+        {nombre:"ACT3: Equipos de protección",criterios:["Selección EPIs","Guantes dieléctricos","Herramientas aisladas","Mantenimiento EPIs","Normativa seguridad"]},
+        {nombre:"ACT4: Riesgos eléctricos",criterios:["Identificación riesgos","Contactos directos/indirectos","Situaciones peligrosas","Primeros auxilios","Medidas preventivas"]},
+        {nombre:"ACT5: 5 reglas de oro",criterios:["Aplicación 5 reglas","Consignación","Detectores tensión","Señalización","Verificación ausencia tensión"]},
+        {nombre:"ACT6: Simbología eléctrica",criterios:["Reconocimiento símbolos","Dibujo símbolos","Normativa UNE/IEC","Interpretación esquemas","Herramientas dibujo"]},
+        {nombre:"ACT7: Planos unifilares",criterios:["Lectura esquemas","Circuitos potencia","Interpretación protecciones","Cálculos intensidades","Detección errores"]},
+        {nombre:"ACT8: Circuitos alumbrado",criterios:["Punto luz simple","Conmutado 2 puntos","Cruzamiento 3+ puntos","Temporizadores","Verificación funcionamiento"]},
+        {nombre:"ACT9: Circuitos enchufes",criterios:["Bases schuko","Conexión tierra","Protección diferencial","Enchufes especiales","Verificación comprobador"]},
+        {nombre:"ACT10: Instalación mixta",criterios:["Diseño instalación","Cálculo secciones","Montaje cuadro","Conexionado líneas","Etiquetado y puesta en servicio"]}
     ];
 
+    const actividadesElectricidadNuevas = [
+        {nombre:"E1: Descifrando el Código",criterios:["Identificación equipos","Uso seguro","Interpretación normativa","Reconocimiento componentes","Preparación área"]},
+        {nombre:"E2: El Laberinto de Tubos",criterios:["Planificación rutas","Corte y curvado","Fijación soportes","Cajas registro","Verificación continuidad"]},
+        {nombre:"E3: Tejiendo la Red",criterios:["Tendido conductores","Identificación colores","Conexionado derivaciones","Uso regletas","Verificación continuidad"]},
+        {nombre:"E4: El Panel de Control",criterios:["Montaje cuadro","Diferencial y magnetotérmicos","Conexionado bornas","Identificación circuitos","Pruebas funcionamiento"]},
+        {nombre:"E5: Encendiendo la Magia",criterios:["Instalación mecanismos","Conexionado fase-neutro-tierra","Nivelación mecanismos","Pruebas funcionamiento","Acabado placas"]},
+        {nombre:"E6: 5 Circuitos Obligatorios",criterios:["Alumbrado básico","Enchufes generales","Cocina y horno","Baño zonas húmedas","Lavadero lavavajillas"]},
+        {nombre:"E7: Luz en Cada Rincón",criterios:["Puntos de luz","Portalámparas","Conmutados","Detectores movimiento","Regulación intensidad"]},
+        {nombre:"E8: Verificando Seguridad",criterios:["Continuidad tierra","Medición aislamiento","Sensibilidad diferencial","Comprobación polaridad","Certificado eléctrico"]},
+        {nombre:"E9: Coordinación Fontanería",criterios:["Cruces instalaciones","Distancias seguridad","Coordinación oficios","Planificación rutas","Comunicación equipo"]},
+        {nombre:"E10: MI INSTALACIÓN COMPLETA",criterios:["Planificación integral","Todos los circuitos","Cuadro completo","Verificación protecciones","Puesta en servicio"]}
+    ];
+
+    // FONTANERÍA
     const actividadesFontaneriaOriginal = [
-        {
-            nombre: "ACT1: Herramientas de fontanería (llaves, cortatubos, soplete)",
-            criterios: [
-                "Identificación correcta de herramientas",
-                "Uso de llaves inglesas y estilson",
-                "Técnica de corte de tubos",
-                "Manejo de soplete para soldadura",
-                "Mantenimiento de herramientas"
-            ]
-        }
+        {nombre:"ACT1: Herramientas fontanería",criterios:["Identificación herramientas","Llaves inglesas","Corte tubos","Soplete soldadura","Mantenimiento"]},
+        {nombre:"ACT2: Tipos tuberías",criterios:["Diferenciación PVC/cobre/PEX","Elección conexiones","Unión por rosca","Soldadura cobre","Pruebas estanqueidad"]},
+        {nombre:"ACT3: Instalación sanitarios",criterios:["Montaje inodoro","Instalación lavabo","Conexión desagües","Nivelación fijación","Pruebas funcionamiento"]},
+        {nombre:"ACT4: Sistemas desagüe",criterios:["Cálculo pendientes","Instalación bajantes","Ventilación primaria","Prevención sifonamiento","Pruebas drenaje"]},
+        {nombre:"ACT5: Detección fugas",criterios:["Localización fugas","Reparación juntas","Sustitución secciones","Cintas sellantes","Verificación estanqueidad"]},
+        {nombre:"ACT6: Grifería monomando",criterios:["Desmontaje antigua","Preparación superficies","Juntas arandelas","Ajuste caudal temperatura","Pruebas estanqueidad"]},
+        {nombre:"ACT7: Calentador eléctrico",criterios:["Elección ubicación","Fijación pared","Conexiones agua","Conexión eléctrica","Puesta en marcha"]},
+        {nombre:"ACT8: Desagüe lavadora",criterios:["Cálculo desagüe sifónico","Válvula antiretorno","Conexión bajante","Pruebas caudal","Nivelación máquina"]}
     ];
 
+    const actividadesFontaneriaNuevas = [
+        {nombre:"F1: El Fontanero Ilustrado",criterios:["Identificación materiales","Tipos tuberías","Selección adecuada","Organización almacén","Lista materiales"]},
+        {nombre:"F2: Domando el PEX",criterios:["Corte preciso PEX","Herramientas prensado","Uniones estancas","Abrazaderas soportes","Pruebas presión"]},
+        {nombre:"F3: La Multicapa Perfecta",criterios:["Tuberías multicapa","Curvados precisos","Corte específico","Juntas accesorios","Instalación calefacción"]},
+        {nombre:"F4: El Gran Desagüe",criterios:["Bajantes desagües","Cálculo pendientes","Sifones válvulas","Ventilación primaria","Pruebas estanqueidad"]},
+        {nombre:"F5: Agua Caliente 24/7",criterios:["Instalación calentador","Circuito agua caliente","Aislamiento tuberías","Regulación temperatura","Pruebas seguridad"]},
+        {nombre:"F6: El Trono del Rey",criterios:["Instalación inodoro","Nivelación fijación","Conexión entrada desagüe","Pruebas descarga","Tapa accesorios"]},
+        {nombre:"F7: Bajo Presión",criterios:["Pruebas presión sistema","Detección fugas","Verificación válvulas","Comprobación caudal","Documentación pruebas"]},
+        {nombre:"F8: Coordinación Perfecta",criterios:["Coordinación eléctrica","Espacios otros oficios","Planificación rutas","Comunicación equipo","Solución interferencias"]},
+        {nombre:"F9: Fontanero-Electricista",criterios:["Elementos mixtos","Agua caliente","Aparatos con electricidad","Normativas conjuntas","Integración sistemas"]},
+        {nombre:"F10: MI PRIMER BAÑO COMPLETO",criterios:["Fontanería completa baño","Todos sanitarios","Sistema desagüe","Pruebas integrales","Limpieza entrega"]}
+    ];
+
+    // CARPINTERÍA
     const actividadesCarpinteriaOriginal = [
-        {
-            nombre: "ACT1: Herramientas manuales (sierras, cepillos, formones)",
-            criterios: [
-                "Identificación correcta de herramientas",
-                "Técnica de corte con sierras",
-                "Uso de cepillos para cepillado",
-                "Manejo de formones para ensambles",
-                "Afilado y mantenimiento"
-            ]
-        }
+        {nombre:"ACT1: Herramientas manuales",criterios:["Identificación herramientas","Corte sierras","Uso cepillos","Manejo formones","Afilado mantenimiento"]},
+        {nombre:"ACT2: Medición y marcaje",criterios:["Uso metros escuadras","Técnicas trazado","Transferencia medidas","Verificación ángulos","Precisión cortes"]},
+        {nombre:"ACT3: Ensambles básicos",criterios:["Preparación superficies","Aplicación cola","Elección clavos tornillos","Técnicas atornillado","Acabado uniones"]},
+        {nombre:"ACT4: Madera maciza",criterios:["Selección maderas","Respeto vetas","Cepillado manual","Uniones madera maciza","Acabados naturales"]},
+        {nombre:"ACT5: Proyecto estantería",criterios:["Interpretación plano","Cálculo materiales","Secuencia montaje","Calidad acabados","Funcionalidad producto"]},
+        {nombre:"ACT6: Herramientas eléctricas",criterios:["Manejo taladro","Sierra caladora","Lijadora orbital","Ajuste velocidades","Mantenimiento"]},
+        {nombre:"ACT7: Marco para cuadro",criterios:["Corte ángulos 45°","Ensamblaje ingletes","Refuerzo esquinas","Acabado lija barniz","Montaje vidrio"]},
+        {nombre:"ACT8: Reparación mueble",criterios:["Diagnóstico daños","Desmontaje partes","Sustitución elementos","Refuerzo estructura","Acabado uniforme"]}
     ];
 
+    const actividadesCarpinteriaNuevas = [
+        {nombre:"C1: El Detective de Planos",criterios:["Interpretación documentación","Identificación cotas","Comprensión símbolos","Extracción información","Lista materiales"]},
+        {nombre:"C2: El Almacén Perfecto",criterios:["Organización materiales","Transporte seguro","Clasificación tipos","Control existencias","Orden limpieza"]},
+        {nombre:"C3: Replanteo: Marcar",criterios:["Transferencia medidas","Herramientas marcaje","Verificación ángulos","Marcaje superficies","Ajuste medidas"]},
+        {nombre:"C4: Primer Suelo Flotante",criterios:["Subbase nivelada","Barrera vapor","Paneles con junta","Perfiles transiciones","Acabado limpieza"]},
+        {nombre:"C5: Maestro del Zócalo",criterios:["Medición corte","Ajuste esquinas","Fijación pared","Acabado juntas","Limpieza protección"]},
+        {nombre:"C6: El Premarco Perfecto",criterios:["Instalación premarcos","Nivelación aplomado","Fijación estructural","Preparación bisagras","Masillado juntas"]},
+        {nombre:"C7: Colgando Puertas Pro",criterios:["Montaje bisagras","Colocación ajuste","Mecanismos cierre","Ajuste holguras","Acabado lubricación"]},
+        {nombre:"C8: Armario Empotrado",criterios:["Diseño planificación","Estructura principal","Estantes barras","Puertas frontales","Ajustes acabados"]},
+        {nombre:"C9: Cocina Completa",criterios:["Mobiliario cocina","Encimeras zócalos","Ajuste puertas cajones","Electrodomésticos integrados","Acabado limpieza"]},
+        {nombre:"C10: MI HABITACIÓN COMPLETA",criterios:["Suelo flotante completo","Todo mobiliario","Puertas zócalos","Integración elementos","Limpieza entrega"]}
+    ];
+
+    // ALBAÑILERÍA
     const actividadesAlbanileriaOriginal = [
-        {
-            nombre: "ACT1: Herramientas de albañilería (paletas, niveles, plomadas)",
-            criterios: [
-                "Identificación correcta de herramientas",
-                "Uso de paletas para mortero",
-                "Manejo de niveles y plomadas",
-                "Técnicas de aplomado",
-                "Limpieza y mantenimiento"
-            ]
-        }
+        {nombre:"ACT1: Herramientas albañilería",criterios:["Identificación herramientas","Uso paletas","Manejo niveles plomadas","Técnicas aplomado","Limpieza mantenimiento"]},
+        {nombre:"ACT2: Preparación morteros",criterios:["Proporciones correctas","Mezclado homogéneo","Control consistencia","Tiempos fraguado","Limpieza herramientas"]},
+        {nombre:"ACT3: Asentado ladrillos",criterios:["Hiladas niveladas","Control juntas horizontales","Aplomado paramentos","Juntas verticales","Aspecto final"]},
+        {nombre:"ACT4: Revoques enlucidos",criterios:["Preparación superficie","Capa agarre","Técnica revocado","Regleado alisado","Acabado superficial"]},
+        {nombre:"ACT5: Solados alicatados",criterios:["Lecho de arena","Nivelación base","Colocación baldosas","Control juntas","Limpieza final"]},
+        {nombre:"ACT6: Tabique de ladrillo",criterios:["Trazo replanteo","Primera hilada","Control plomos niveles","Encuentros paredes","Acabado juntas"]},
+        {nombre:"ACT7: Reparación grietas",criterios:["Preparación superficie","Imprimación","Relleno mortero","Alisado texturizado","Acabado pintura"]},
+        {nombre:"ACT8: Azulejos en pared",criterios:["Planeado distribución","Corte preciso","Adhesivo cerámico","Colocación cruceros","Rejuntado limpieza"]}
+    ];
+
+    const actividadesAlbanileriaNuevas = [
+        {nombre:"A1: Inspector de Obra",criterios:["Interpretación planos","Croquis mediciones","Identificación elementos","Toma datos","Informe visita"]},
+        {nombre:"A2: Alquimista Morteros",criterios:["Dosificación componentes","Mezclado homogéneo","Control consistencia","Pastas agarre","Limpieza herramientas"]},
+        {nombre:"A3: El Muro Perfecto",criterios:["Hiladas niveladas","Control plomos escuadras","Llenado juntas","Encuentros esquinas","Acabado superficial"]},
+        {nombre:"A4: Tabiquería Seca",criterios:["Estructura metálica","Placas yeso","Fijación estanca","Preparación instalaciones","Acabado juntas"]},
+        {nombre:"A5: Cirujano Pared - Rozas",criterios:["Marcaje rozas","Cortes limpios","Profundidades anchos","Tubos conducciones","Relleno acabado"]},
+        {nombre:"A6: Paredes para Pintar",criterios:["Capa agarre","Extendido regleado","Alisado superficial","Espesores uniformes","Acabado para pintura"]},
+        {nombre:"A7: Maestro Enfoscado",criterios:["Paramento exterior","Enfoscado cemento","Regleado alisado","Texturizado superficial","Curado protección"]},
+        {nombre:"A8: Alicatando Baño",criterios:["Distribución azulejos","Corte preciso","Adhesivo cerámico","Junta uniforme","Rejuntado limpieza"]},
+        {nombre:"A9: Solando el Salón",criterios:["Solera nivelada","Lecho mortero","Baldosas niveladas","Control juntas","Limpieza protección"]},
+        {nombre:"A10: MI BAÑO COMPLETO",criterios:["Albañilería completa","Tabiquería revestimientos","Solado alicatado","Preparación otros oficios","Limpieza entrega"]},
+        {nombre:"TAB1: Pladur Pro",criterios:["Estructura metálica","Placas yeso laminado","Material aislante","Fijación estanca","Acabado juntas"]},
+        {nombre:"TAB2: Techos Suspendidos",criterios:["Estructura techo","Nivelación falso techo","Placas yeso","Integración luces","Acabado juntas esquinas"]},
+        {nombre:"PINT1: Preparando Lienzo",criterios:["Limpieza superficies","Imprimaciones","Relleno grietas","Lijado uniforme","Protección elementos"]},
+        {nombre:"PINT2: Pintando Profesional",criterios:["Mezclado pinturas","Primera mano","Técnica sin marcas","Segunda mano","Limpieza herramientas"]},
+        {nombre:"PINT3: Arte del Detalle",criterios:["Carpinterías molduras","Esmaltes barnices","Efectos decorativos","Acabado detalles","Protección limpieza"]}
     ];
 
     const aspectosData = [
